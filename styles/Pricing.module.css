@@ -1,0 +1,11 @@
+.pricingCard {
+  border-radius: 16px;
+  background-color: #202932;
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 16px;
+}

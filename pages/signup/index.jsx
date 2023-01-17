@@ -1,0 +1,154 @@
+import React from "react";
+
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Link from "next/link";
+
+import { Material3Button } from "../../components/Material3Button";
+import PasswordField from "../../components/PasswordField";
+
+import useUser from "../../hooks/useUser";
+
+import { api } from "../../api/api";
+
+import pageStyles from "../../styles/Page.module.css";
+import loginStyles from "../../styles/Login.module.css";
+import styles from "../../styles/SignUp.module.css";
+
+export default function SignUp(props) {
+  const [agreedToTerms, setAgreedToTerms] = React.useState(false);
+  const [helperText, setHelperText] = React.useState("");
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const user = useUser();
+
+  if (user.ready && user.loggedIn) {
+    window.location.replace("/dashboard?message=You are already logged in!");
+  }
+
+  const usernameChanged = (event) => {
+    setUsername(event.target.value);
+    setHelperText("");
+  };
+
+  const passwordChanged = (event) => {
+    setPassword(event.target.value);
+    setHelperText("");
+  };
+
+  const agreedToTermsChanged = (event) => {
+    setAgreedToTerms(event.target.checked);
+  };
+
+  const handleRegister = () => {
+    if (!agreedToTerms) {
+      setHelperText("You must agree to the terms and conditions.");
+      return;
+    }
+
+    // eslint-disable-next-line no-undef
+    grecaptcha
+      .execute("6LeD4LkgAAAAAChLtd2kTZX4ujHPfjGPsZ6p3w1D", { action: "login" })
+      .then((token) => {
+        api.Register(username, password, token).then((apiResponse) => {
+          if (apiResponse.success) {
+            window.location.assign(
+              "/dashboard?message=Registration successful!"
+            );
+          } else {
+            setHelperText(
+              apiResponse.json?.message ?? "An unknown error occurred"
+            );
+          }
+        });
+      });
+  };
+
+  const termsCheckbox = (
+    <Checkbox
+      size="small"
+      checked={agreedToTerms}
+      onChange={agreedToTermsChanged}
+    />
+  );
+
+  const termsText = (
+    <Typography variant="body2">
+      I have read and agree to the{" "}
+      <Link href="/terms" className={loginStyles.link}>
+        Terms of Service
+      </Link>{" "}
+      and{" "}
+      <Link href="/privacy" className={loginStyles.link}>
+        Privacy Policy
+      </Link>
+    </Typography>
+  );
+
+  return (
+    <Box className={pageStyles.pageContainer}>
+      <Box className={loginStyles.loginCard}>
+        <Typography variant="h3" paragraph className={loginStyles.title}>
+          Sign Up
+        </Typography>
+
+        <Typography variant="body2" className={loginStyles.description}>
+          Already have an account?{" "}
+          <Link href="/login" className={loginStyles.link}>
+            Login
+          </Link>
+        </Typography>
+
+        <TextField
+          variant="filled"
+          label="Username"
+          value={username}
+          onChange={usernameChanged}
+          error={helperText !== ""}
+          helperText={helperText}
+          className={loginStyles.input}
+        />
+
+        <PasswordField
+          variant="filled"
+          label="Password"
+          value={password}
+          onChange={passwordChanged}
+          error={helperText !== ""}
+          helperText={helperText}
+          className={loginStyles.input}
+        />
+        <FormControlLabel
+          className={styles.termsCheckbox}
+          control={termsCheckbox}
+          label={termsText}
+        />
+        <Typography variant="body2" className={styles.reCaptchaBranding}>
+          This site is protected by reCAPTCHA and the Google{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            className={styles.reCaptchaLink}
+          >
+            Privacy Policy
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://policies.google.com/terms"
+            className={styles.reCaptchaLink}
+          >
+            Terms of Service
+          </a>{" "}
+          apply.
+        </Typography>
+
+        <Material3Button variant="contained" onClick={handleRegister}>
+          Register
+        </Material3Button>
+      </Box>
+    </Box>
+  );
+}

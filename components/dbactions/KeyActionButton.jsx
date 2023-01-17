@@ -1,0 +1,96 @@
+import React from "react";
+
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle";
+import Dialog from "@mui/material/Dialog";
+import Box from "@mui/material/Box";
+
+import { Material3Button } from "../Material3Button";
+
+import { useModal } from "mui-modal-provider";
+import { useSnackbar } from "notistack";
+
+import { handleTableChange } from "../../hooks/useTableData";
+import { api } from "../../api/api";
+
+import dashStyles from "../../styles/Dashboard.module.css";
+
+function KeyActionModal(props) {
+  const [dialogOpen, setDialogOpen] = React.useState(true);
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { id, key } = props.row;
+
+  const onDeleteKeyClick = async () => {
+    const apiResponse = await api.KeyAction(id, "delete");
+
+    if (apiResponse.success) {
+      enqueueSnackbar("Successfully deleted key!", {
+        variant: "success",
+      });
+      handleTableChange("keys");
+    } else {
+      enqueueSnackbar(
+        apiResponse.json?.message ?? "An unknown error has occurred",
+        { variant: "error" }
+      );
+    }
+  };
+
+  const onSetUnredeemedClick = async () => {
+    const apiResponse = await api.KeyAction(id, "set_unredeemed");
+
+    if (apiResponse.success) {
+      enqueueSnackbar("Successfully set key unredeemed!", {
+        variant: "success",
+      });
+      handleTableChange("keys");
+    } else {
+      enqueueSnackbar(
+        apiResponse.json?.message ?? "An unknown error has occurred",
+        { variant: "error" }
+      );
+    }
+  };
+
+  const closeDialog = () => {
+    setDialogOpen(false);
+  };
+
+  return (
+    <Dialog open={dialogOpen} onClose={closeDialog} fullWidth>
+      <DialogTitle>Key Actions ({key})</DialogTitle>
+
+      <DialogContent className={dashStyles.itemContainer}>
+        <Box display="flex" justifyContent="flex-start" gap={2}>
+          <Material3Button variant="contained" onClick={onDeleteKeyClick}>
+            Delete Key
+          </Material3Button>
+
+          <Material3Button variant="contained" onClick={onSetUnredeemedClick}>
+            Set unredeemed
+          </Material3Button>
+        </Box>
+      </DialogContent>
+
+      <DialogActions>
+        <Material3Button onClick={closeDialog}>Close</Material3Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
+
+export function KeyActionButton(props) {
+  const { showModal } = useModal();
+
+  const row = props.gridCellParams.row;
+
+  const onViewActionsClick = () => showModal(KeyActionModal, { row });
+
+  return (
+    <Material3Button variant="contained" onClick={onViewActionsClick}>
+      View Actions
+    </Material3Button>
+  );
+}

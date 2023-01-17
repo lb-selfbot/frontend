@@ -1,0 +1,41 @@
+.card {
+  height: 65vh;
+  min-height: 500px;
+}
+
+.cardTitle {
+  font-size: 1.45rem;
+  margin: 10px 0 0 15px;
+}
+
+.consoleContainer {
+  padding: 15px;
+  margin: 10px 15px 0 15px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255, 0.1);
+  height: calc(100% - 65px);
+  overflow: auto;
+}
+
+.consoleActions {
+  align-items: center;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.consoleContainer.selfbotConnected {
+  height: calc(100% - 110px);
+}
+
+.consoleButton:first-of-type {
+  margin-right: 5px;
+}
+
+.consoleButton:last-of-type {
+  margin-left: 5px;
+}
+
+.consoleButton:not(:first-of-type):not(:last-of-type) {
+  margin-left: 5px;
+  margin-right: 5px;
+}

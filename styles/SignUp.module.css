@@ -1,0 +1,23 @@
+.reCaptchaBranding {
+  font-family: Inter, sans-serif;
+  font-size: 0.7rem;
+  color: #919eab;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 8px;
+}
+
+.reCaptchaLink {
+  text-decoration: none;
+  color: rgba(190, 190, 191);
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.reCaptchaLink:hover {
+  color: rgba(200, 200, 201, 0.5);
+}
+
+.termsCheckbox {
+  justify-content: center;
+  margin-bottom: 8px;
+}

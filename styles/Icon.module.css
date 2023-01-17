@@ -1,0 +1,7 @@
+.iconContainer {
+  line-height: 1;
+  display: block;
+  overflow: hidden;
+  max-width: 320px;
+  margin: 0 auto;
+}

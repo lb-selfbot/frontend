@@ -1,0 +1,82 @@
+.loginCard {
+  width: 480px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: rgb(0 0 0 / 24%) -24px 24px 72px -8px;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  background-color: #202932;
+  margin: 16px;
+}
+
+.title {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.description {
+  margin: 0;
+  line-height: 1.86;
+  font-size: 0.875rem;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  color: #9ea7b0;
+  margin-bottom: 16px;
+}
+
+.link {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.8571428571428572;
+  font-size: 0.875rem;
+  font-family: Poppins, sans-serif;
+  color: #3990c1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.link:hover {
+  filter: brightness(80%);
+}
+
+.input {
+  margin-bottom: 16px;
+}
+
+.termsCheckbox {
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.actionsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .title {
+    font-size: 1.625rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .title {
+    font-size: 1.875rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    font-size: 2rem;
+  }
+}

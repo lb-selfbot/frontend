@@ -1,0 +1,56 @@
+.navItemContainer {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.navLink {
+  text-decoration: none;
+}
+
+.navItem {
+  font-family: Inter;
+  font-size: 1rem;
+  color: rgb(150, 166, 180);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.navItem.active {
+  color: #eee;
+}
+
+.navItem:hover {
+  filter: brightness(80%);
+}
+
+.leftNavItem {
+  background-color: #121212;
+}
+
+.leftNavButton {
+  margin: 3px 10px;
+  border-radius: 8px;
+  color: #96a6b4;
+}
+
+.leftNavButton.active {
+  background-color: rgb(48, 48, 48, 0.8);
+  color: #eee;
+}
+
+.leftNavLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 0px) {
+  .navItemContainer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .navItemContainer {
+    display: block;
+  }
+}

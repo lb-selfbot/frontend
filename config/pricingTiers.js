@@ -1,0 +1,43 @@
+export const pricingTiers = [
+  {
+    title: "Free Selfbot",
+    price: "0",
+    description: [
+      "Lifetime access",
+      "50+ commands",
+      "Multi Platform",
+      "Open Source",
+    ],
+    recommended: false,
+    buttonText: "Download Now",
+    buttonVariant: "outlined",
+    link: "https://github.com/LightningDev1/LightningBot-Free",
+  },
+  {
+    title: "Premium Selfbot",
+    price: "5",
+    description: [
+      "Lifetime access",
+      "800+ commands",
+      "Multi Platform",
+      "Nitro Sniper",
+      "Giveaway Sniper",
+      "Spotify Integration",
+      "Beautiful UI",
+      "Online Dashboard",
+    ],
+    recommended: true,
+    buttonText: "Get Started",
+    buttonVariant: "contained",
+    link: "",
+  },
+  {
+    title: "Free Trial",
+    price: "0",
+    description: ["7 day access", "Everything in Premium"],
+    recommended: false,
+    buttonText: "Use for free",
+    buttonVariant: "outlined",
+    link: "",
+  },
+];

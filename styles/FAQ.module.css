@@ -1,0 +1,71 @@
+.faqTitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.faqContainer {
+  width: fit-content;
+  margin: 0px auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.faqTitle {
+  margin: 0px 0px 0.75em;
+  font-family: Inter, sans-serif;
+  font-size: 1.75rem;
+  color: rgb(238, 238, 239);
+  font-weight: 700;
+}
+
+.faqAccordion {
+  background-color: rgb(25, 69, 116);
+  color: rgb(238, 238, 239);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05)
+  );
+  position: relative;
+  transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow-anchor: none;
+  padding: 8px;
+  margin-bottom: 16px;
+  border-radius: 8px !important;
+}
+
+.faqLink {
+  text-decoration: none;
+  color: rgba(190, 190, 191);
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.faqLink:hover {
+  color: rgba(200, 200, 201, 0.5);
+}
+
+@media screen and (min-width: 0px) {
+  .faqContainer {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .faqContainer {
+    max-width: 720px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .faqContainer {
+    max-width: 1236px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}

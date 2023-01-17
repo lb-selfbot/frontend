@@ -1,0 +1,17 @@
+.title {
+  margin: 0px 0px 0.35em;
+  font-family: Inter, sans-serif;
+  font-size: 3rem;
+  color: rgb(238, 238, 239);
+  font-weight: 700;
+}
+
+.description {
+  margin: 0px 0px 0.75em;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  color: rgb(174, 176, 180);
+}
