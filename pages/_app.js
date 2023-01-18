@@ -97,9 +97,14 @@ function MainApp({ Component, pageProps }) {
   const theme = themeMode === "dark" ? darkTheme : lightTheme;
 
   return (
-    <Providers theme={theme}>
-      <App Component={Component} pageProps={pageProps} />
-    </Providers>
+    <>
+      <Head>
+        <title>LightningBot</title>
+      </Head>
+      <Providers theme={theme}>
+        <App Component={Component} pageProps={pageProps} />
+      </Providers>
+    </>
   );
 }
 
