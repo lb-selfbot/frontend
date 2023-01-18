@@ -97,19 +97,9 @@ function MainApp({ Component, pageProps }) {
   const theme = themeMode === "dark" ? darkTheme : lightTheme;
 
   return (
-    <React.Fragment>
-      <Head>
-        <title>LightningBot</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="description" content="A Discord Selfbot" />
-        <meta name="theme-color" content="#f7fa08" />
-      </Head>
-
-      <Providers theme={theme}>
-        <App Component={Component} pageProps={pageProps} />
-      </Providers>
-    </React.Fragment>
+    <Providers theme={theme}>
+      <App Component={Component} pageProps={pageProps} />
+    </Providers>
   );
 }
 
