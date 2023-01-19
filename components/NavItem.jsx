@@ -26,7 +26,7 @@ function NavItem({ text, href }) {
 
   return (
     <Box className={styles.navItemContainer}>
-      <Link href={href} passHref className={styles.navLink}>
+      <Link href={href} className={styles.navLink}>
         <Typography variant="h6" className={navLinkClasses}>
           {text}
         </Typography>
@@ -49,17 +49,20 @@ function LeftNavItem({ text, icon, href, onClick }) {
   ]);
 
   return (
-    // <Link href={href} passHref onClick={onClick} className={styles.leftNavLink}>
-      <ListItem disablePadding className={styles.leftNavItem}>
-        <ListItemButton LinkComponent={Link} href={href} onClick={onClick} className={buttonClasses}>
-          <ListItemIcon>
-            {icon({ htmlColor: selected ? "#eee" : "#96A6B4" })}
-          </ListItemIcon>
+    <ListItem disablePadding className={styles.leftNavItem}>
+      <ListItemButton
+        component={Link}
+        href={href}
+        onClick={onClick}
+        className={buttonClasses}
+      >
+        <ListItemIcon>
+          {icon({ htmlColor: selected ? "#eee" : "#96A6B4" })}
+        </ListItemIcon>
 
-          <ListItemText primary={text} />
-        </ListItemButton>
-      </ListItem>
-    // </Link>
+        <ListItemText primary={text} />
+      </ListItemButton>
+    </ListItem>
   );
 }
 
