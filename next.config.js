@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const COMING_SOON = false;
+const COMING_SOON = true;
 const MAINTENANCE = false;
 
 const nextConfig = {
