@@ -74,6 +74,10 @@ function App(props) {
 
   const navButtons = getNavButtons(user);
 
+  // If navButtons is empty, we probably don't want to link to the homepage
+  // COMING_SOON or MAINTENANCE is probably set
+  const logoHref = navButtons.length > 0 ? "/" : "";
+
   return (
     <Box className={styles.mainContainer}>
       {/* Top Bar */}
@@ -91,7 +95,7 @@ function App(props) {
             </IconButton>
           )}
 
-          <Link href="/" className={styles.logoLink}>
+          <Link href={logoHref} className={styles.logoLink}>
             <Box className={iconContainerClasses}>
               <Image
                 src={logo}
