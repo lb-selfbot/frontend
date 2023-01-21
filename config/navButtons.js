@@ -11,7 +11,11 @@ import DataThresholdingIcon from "@mui/icons-material/DataThresholding";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ConfigIcon from "@mui/icons-material/Settings";
 
+import { COMING_SOON, MAINTENANCE } from "./config.js";
+
 function getNavButtons(user) {
+  if (COMING_SOON || MAINTENANCE) return [];
+
   const navButtons = [
     { text: "Home", to: "/", icon: (props) => <HomeIcon {...props} /> },
     { text: "FAQ", to: "/faq", icon: (props) => <QuizIcon {...props} /> },
@@ -50,6 +54,8 @@ function getNavButtons(user) {
 }
 
 function getDashboardNavButtons(user) {
+  if (COMING_SOON || MAINTENANCE) return [];
+
   const navButtons = {
     General: [
       { text: "Home", to: "/", icon: (props) => <HomeIcon {...props} /> },
