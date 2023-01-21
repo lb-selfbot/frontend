@@ -74,9 +74,9 @@ function PricingCard(props) {
         <Button
           fullWidth
           variant={buttonVariant}
-          LinkComponent={Link}
           color="lightBlue"
-          target="_blank"
+          LinkComponent={Link}
+          target={linkTo.startsWith("http") ? "_blank" : "_self"}
           href={linkTo}
         >
           {buttonText}
