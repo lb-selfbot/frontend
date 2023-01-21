@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-const COMING_SOON = true;
+
+const COMING_SOON_DATE = new Date(Date.UTC(2023, 0, 21, 14, 0, 0));
+
+const COMING_SOON = new Date() < COMING_SOON_DATE;
+
 const MAINTENANCE = false;
 
 const nextConfig = {
