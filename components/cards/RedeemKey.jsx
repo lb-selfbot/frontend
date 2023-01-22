@@ -131,6 +131,33 @@ function RedeemKeyDialog(props) {
   );
 }
 
+function Resellers() {
+  return (
+    <>
+      <Divider sx={{ backgroundColor: "#bbb", my: 1 }} />
+
+      <DialogContentText
+        my={1}
+        color="text.primary"
+        sx={{ fontFamily: "Inter" }}
+      >
+        Resellers
+      </DialogContentText>
+
+      {resellers.map((reseller) => (
+        <Material3Button
+          variant="contained"
+          onClick={() => window.location.assign(reseller.url)}
+          sx={{ my: 1 }}
+          key={reseller.name}
+        >
+          {reseller.name}
+        </Material3Button>
+      ))}
+    </>
+  );
+}
+
 function BuyKeyDialog(props) {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -151,7 +178,7 @@ function BuyKeyDialog(props) {
 
   const onPaymentApprove = (data, _) => {
     onClose();
-    
+
     api.CapturePayPalOrder(data.orderID).then((apiResponse) => {
       if (apiResponse.success) {
         // Reload the user data
@@ -197,32 +224,14 @@ function BuyKeyDialog(props) {
         <Divider sx={{ backgroundColor: "#bbb", my: 1 }} />
 
         <Material3Button
+          data-sellix-product="63cc61ba7c722"
           variant="contained"
-          onClick={console.log} // TODO: Add crypto payment
+          onClick={console.log}
         >
           Buy using Cryptocurrency
         </Material3Button>
 
-        <Divider sx={{ backgroundColor: "#bbb", my: 1 }} />
-
-        <DialogContentText
-          my={1}
-          color="text.primary"
-          sx={{ fontFamily: "Inter" }}
-        >
-          Resellers
-        </DialogContentText>
-
-        {resellers.map((reseller) => (
-          <Material3Button
-            variant="contained"
-            onClick={() => window.location.assign(reseller.url)}
-            sx={{ my: 1 }}
-            key={reseller.name}
-          >
-            {reseller.name}
-          </Material3Button>
-        ))}
+        {resellers.length > 0 && <Resellers />}
       </DialogContent>
 
       <DialogActions>

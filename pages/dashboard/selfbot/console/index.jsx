@@ -62,7 +62,7 @@ function SelfbotConsole(props) {
 
   const consoleContainerClasses = classes([
     styles.consoleContainer,
-    selfbotConnected && styles.selfbotConnected, // TODO
+    selfbotConnected && styles.selfbotConnected,
   ]);
 
   return (
