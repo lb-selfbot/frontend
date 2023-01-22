@@ -131,16 +131,16 @@ export function Download() {
   };
 
   // Build and open the download URL
-  const onDownloadClick = (event) => {
-    let baseUrl = "https://api.lightning-bot.com/static/executables";
-    let url = "";
-    if (osValue === "macos") {
-      url = `${baseUrl}/macos/${typeValue}`;
-    } else {
-      url = `${baseUrl}/${osValue}/${archValue}/${typeValue}`;
-    }
+  const onDownloadClick = (_event) => {
+    let url = `https://api.lightning-bot.com/static/executables/${osValue}`;
 
-    if (osValue === "windows") url += ".exe";
+    if (osValue === "windows") {
+      url += `/${archValue}/${typeValue}.exe`;
+    } else if (osValue === "macos") {
+      url += `/${typeValue}${typeValue === "ui" ? ".dmg" : ""}`;
+    } else if (osValue === "linux") {
+      url += `/${archValue}/${typeValue}${typeValue === "ui" ? ".deb" : ""}`;
+    }
 
     window.open(url, "_blank");
   };
