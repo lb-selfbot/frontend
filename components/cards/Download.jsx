@@ -158,7 +158,7 @@ export function Download() {
         </Typography>
       </Grid>
 
-      <Card.Container xs={12} sm={12} md={12} lg={12} sx={premiumOnly}>
+      <Card.Container xs={12} sm={12} md={12} lg={12}>
         <Card.MuiCard>
           <CardContent className={dashStyles.itemContainer}>
             <Typography variant="h4" className={dashStyles.itemTitle}>
