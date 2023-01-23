@@ -32,7 +32,7 @@ export default function Logout() {
         Router.push(`/?message=${error}`);
       }
     });
-  }, []);
+  }, [loggingOut]);
 
   return (
     <Box className={pageStyles.pageContainer}>
