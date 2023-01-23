@@ -145,10 +145,6 @@ export function Download() {
     window.open(url, "_blank");
   };
 
-  const premiumOnly = {
-    display: user.key !== "None" ? "block" : "none",
-  };
-
   const titleClasses = classes([
     homeStyles.landingTitleGradient,
     faqStyles.faqTitle,
@@ -156,7 +152,7 @@ export function Download() {
 
   return (
     <>
-      <Grid item xs={12} mt={1} sx={premiumOnly}>
+      <Grid item xs={12} mt={1}>
         <Typography variant="h4" className={titleClasses}>
           Download
         </Typography>
