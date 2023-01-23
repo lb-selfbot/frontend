@@ -11,11 +11,11 @@ import Router from "next/router";
 import pageStyles from "../../styles/Page.module.css";
 import styles from "../../styles/NotFound.module.css";
 
-export default function Logout(props) {
+export default function Logout() {
   const [loggingOut, setLoggingOut] = React.useState(false);
   const user = useUser();
 
-  if (user.ready && !user.loggedIn) {
+  if (user.ready && !user.loggedIn && !loggingOut) {
     Router.push("/?message=You are already logged out!");
   }
 
