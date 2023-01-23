@@ -12,4 +12,15 @@ const API_URL = DEBUG
 
 const WS_URL = API_URL.replace("http", "ws") + "/v3/ws/website";
 
-export { API_URL, COMING_SOON, COMING_SOON_DATE, DEBUG, MAINTENANCE, WS_URL };
+// ReCAPTCHA config
+const RECAPTCHA_SITEKEY = "6LeD4LkgAAAAAChLtd2kTZX4ujHPfjGPsZ6p3w1D";
+
+export {
+  API_URL,
+  COMING_SOON,
+  COMING_SOON_DATE,
+  DEBUG,
+  MAINTENANCE,
+  WS_URL,
+  RECAPTCHA_SITEKEY,
+};

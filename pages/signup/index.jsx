@@ -13,6 +13,7 @@ import PasswordField from "../../components/PasswordField";
 
 import useUser from "../../hooks/useUser";
 
+import { RECAPTCHA_SITEKEY } from "../../config/config";
 import { api } from "../../api/api";
 
 import pageStyles from "../../styles/Page.module.css";
@@ -44,28 +45,23 @@ export default function SignUp(props) {
     setAgreedToTerms(event.target.checked);
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (!agreedToTerms) {
       setHelperText("You must agree to the terms and conditions.");
       return;
     }
 
-    // eslint-disable-next-line no-undef
-    grecaptcha
-      .execute("6LeD4LkgAAAAAChLtd2kTZX4ujHPfjGPsZ6p3w1D", { action: "login" })
-      .then((token) => {
-        api.Register(username, password, token).then((apiResponse) => {
-          if (apiResponse.success) {
-            window.location.assign(
-              "/dashboard?message=Registration successful!"
-            );
-          } else {
-            setHelperText(
-              apiResponse.json?.message ?? "An unknown error occurred"
-            );
-          }
-        });
-      });
+    const token = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
+      action: "login",
+    });
+
+    const apiResponse = await api.Register(username, password, token);
+
+    if (apiResponse.success) {
+      window.location.assign("/dashboard?message=Registration successful!");
+    } else {
+      setHelperText(apiResponse.json?.message ?? "An unknown error occurred");
+    }
   };
 
   const termsCheckbox = (
