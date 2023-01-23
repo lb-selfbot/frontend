@@ -80,36 +80,39 @@ class Api {
     this.onStatsChange = [];
   }
 
-  async Login(username, password, rememberMe) {
+  async Login(username, password, rememberMe, captcha_token) {
     this.getUserTime = null;
     return await this.http.Post("/v3/auth/login", {
       username: username,
       password: password,
       session: true,
       rememberme: rememberMe,
+      captcha_token: captcha_token,
     });
   }
 
-  async Register(username, password, captcha) {
+  async Register(username, password, captcha_token) {
     this.getUserTime = null;
     return await this.http.Post("/v3/auth/register", {
       username: username,
       password: password,
-      captcha: captcha,
+      captcha_token: captcha_token,
     });
   }
 
-  async ForgotPassword(username) {
+  async ForgotPassword(username, captcha_token) {
     return await this.http.Post("/v3/auth/forgot-password", {
       username: username,
+      captcha_token: captcha_token,
     });
   }
 
-  async ResetPassword(username, new_password, token) {
+  async ResetPassword(username, new_password, token, captcha_token) {
     return await this.http.Post("/v3/auth/reset-password", {
       username: username,
       new_password: new_password,
       token: token,
+      captcha_token: captcha_token,
     });
   }
 
@@ -172,9 +175,10 @@ class Api {
     });
   }
 
-  async RedeemKey(key) {
+  async RedeemKey(key, captcha_token) {
     return await this.http.Post("/v3/selfbot/redeem-key", {
       key: key,
+      captcha_token: captcha_token,
     });
   }
 
@@ -185,8 +189,10 @@ class Api {
     });
   }
 
-  async CreatePayPalOrder() {
-    return await this.http.Post("/v3/paypal/create-order", {});
+  async CreatePayPalOrder(captcha_token) {
+    return await this.http.Post("/v3/paypal/create-order", {
+      captcha_token: captcha_token,
+    });
   }
 
   async CapturePayPalOrder(order_id) {

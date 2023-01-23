@@ -19,6 +19,7 @@ import { Card } from "../Card";
 import useUser from "../../hooks/useUser";
 import { useSnackbar } from "notistack";
 
+import { RECAPTCHA_SITEKEY } from "../../config/config";
 import { resellers } from "../../config/resellers";
 import { api } from "../../api/api";
 
@@ -82,22 +83,25 @@ function RedeemKeyDialog(props) {
     setKey(event.target.value);
   };
 
-  const handleRedeemKey = () => {
-    api.RedeemKey(key).then((apiResponse) => {
-      if (apiResponse.success) {
-        // Reload the user data
-        api.GetUser(false);
-        setKeyError(false);
-        enqueueSnackbar("Key redeemed successfully.", { variant: "success" });
-        onClose();
-        return;
-      }
-
-      const error =
-        apiResponse.json?.message ?? "An unknown error has occurred";
-      setKeyError(true);
-      enqueueSnackbar(error, { variant: "error" });
+  const handleRedeemKey = async () => {
+    const token = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
+      action: "redeem_key",
     });
+
+    const apiResponse = await api.RedeemKey(key, token);
+
+    if (apiResponse.success) {
+      // Reload the user data
+      api.GetUser(false);
+      setKeyError(false);
+      enqueueSnackbar("Key redeemed successfully.", { variant: "success" });
+      onClose();
+      return;
+    }
+
+    const error = apiResponse.json?.message ?? "An unknown error has occurred";
+    setKeyError(true);
+    enqueueSnackbar(error, { variant: "error" });
   };
 
   const { open, onClose } = props;
@@ -163,8 +167,12 @@ function BuyKeyDialog(props) {
 
   const { open, onClose } = props;
 
-  const createOrder = async (data, _) => {
-    const apiResponse = await api.CreatePayPalOrder(data);
+  const createOrder = async (_, _) => {
+    const token = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
+      action: "create_paypal_order",
+    });
+
+    const apiResponse = await api.CreatePayPalOrder(token);
 
     if (apiResponse.success) {
       return apiResponse.json?.order_id;

@@ -19,6 +19,8 @@ import { releasesColumns } from "../../../../config/tableColumns";
 import { classes } from "../../../../utils/classes";
 import { api } from "../../../../api/api";
 
+import Router from "next/router";
+
 import dashStyles from "../../../../styles/Dashboard.module.css";
 import loginStyles from "../../../../styles/Login.module.css";
 import homeStyles from "../../../../styles/Home.module.css";
@@ -78,7 +80,7 @@ function AdminReleases(props) {
   }
 
   if (!user.isStaff) {
-    window.location.replace("/dashboard?message=Forbidden");
+    Router.push("/dashboard?message=Forbidden");
   }
 
   return (

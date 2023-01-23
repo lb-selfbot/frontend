@@ -12,6 +12,8 @@ import useUser from "../../../../hooks/useUser";
 
 import { classes } from "../../../../utils/classes";
 
+import Router from "next/router";
+
 import {
   usersColumns,
   onlineUsersColumns,
@@ -43,7 +45,7 @@ function AdminDatabase(props) {
   }
 
   if (!user.isStaff) {
-    window.location.replace("/dashboard?message=Forbidden");
+    Router.push("/dashboard?message=Forbidden");
   }
 
   return (

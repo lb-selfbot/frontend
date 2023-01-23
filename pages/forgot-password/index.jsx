@@ -1,10 +1,7 @@
 import React from "react";
 
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 
@@ -13,8 +10,9 @@ import PasswordField from "../../components/PasswordField";
 
 import useUser from "../../hooks/useUser";
 
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
+import { RECAPTCHA_SITEKEY } from "../../config/config";
 import { api } from "../../api/api";
 
 import pageStyles from "../../styles/Page.module.css";
@@ -47,7 +45,7 @@ export default function ForgotPassword(props) {
   }, [router.query]);
 
   if (user.ready && user.loggedIn) {
-    window.location.replace("/dashboard?message=You are already logged in!");
+    Router.push("/dashboard?message=You are already logged in!");
   }
 
   const onUsernameChange = (event) => {
@@ -65,24 +63,28 @@ export default function ForgotPassword(props) {
     setHelperText("");
   };
 
-  const handleForgotPassword = () => {
-    api.ForgotPassword(username).then((apiResponse) => {
-      if (apiResponse.success) {
-        setView("emailSent");
-        return;
-      }
-
-      if (apiResponse.json?.error === "INVALID_USERNAME") {
-        setHelperText("No user with this username exists.");
-      } else if (apiResponse.json?.error === "NO_EMAIL") {
-        setView("noEmail");
-      } else {
-        setView("unknownError");
-      }
+  const handleForgotPassword = async () => {
+    const token = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
+      action: "forgot_password",
     });
+
+    const apiResponse = await api.ForgotPassword(username, token);
+
+    if (apiResponse.success) {
+      setView("emailSent");
+      return;
+    }
+
+    if (apiResponse.json?.error === "INVALID_USERNAME") {
+      setHelperText("No user with this username exists.");
+    } else if (apiResponse.json?.error === "NO_EMAIL") {
+      setView("noEmail");
+    } else {
+      setView("unknownError");
+    }
   };
 
-  const handleResetPassword = () => {
+  const handleResetPassword = async () => {
     if (newPassword !== repeatPassword) {
       setHelperText("Passwords do not match.");
       return;
@@ -91,19 +93,25 @@ export default function ForgotPassword(props) {
     const usernameQuery = router.query["username"];
     const tokenQuery = router.query["token"];
 
-    api
-      .ResetPassword(usernameQuery, newPassword, tokenQuery)
-      .then((apiResponse) => {
-        if (apiResponse.success) {
-          setView("resetPasswordSuccess");
-          return;
-        }
+    const captchaToken = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
+      action: "reset_password",
+    });
 
-        const error =
-          apiResponse.json?.message ?? "An unknown error has occurred";
+    const apiResponse = await api.ResetPassword(
+      usernameQuery,
+      newPassword,
+      tokenQuery,
+      captchaToken
+    );
 
-        setHelperText(error);
-      });
+    if (apiResponse.success) {
+      setView("resetPasswordSuccess");
+      return;
+    }
+
+    const error = apiResponse.json?.message ?? "An unknown error has occurred";
+
+    setHelperText(error);
   };
 
   const inputUsername = (

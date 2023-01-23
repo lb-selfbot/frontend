@@ -31,6 +31,7 @@ import dashStyles from "../../../styles/Dashboard.module.css";
 import loginStyles from "../../../styles/Login.module.css";
 import homeStyles from "../../../styles/Home.module.css";
 import faqStyles from "../../../styles/FAQ.module.css";
+import Router from "next/router";
 
 function AdminDashboard(props) {
   const [key, setKey] = React.useState("");
@@ -65,7 +66,7 @@ function AdminDashboard(props) {
   }
 
   if (!user.isStaff) {
-    window.location.replace("/dashboard?message=Forbidden");
+    Router.push("/dashboard?message=Forbidden");
   }
 
   return (

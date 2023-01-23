@@ -11,6 +11,8 @@ import { SelfbotConnectedModal } from "./modals/SelfbotConnected";
 import { LeftNavItem } from "./NavItem";
 import { Subheader } from "./Subheader";
 
+import Router from "next/router";
+
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import useWebSocket from "react-use-websocket";
 import { useModal } from "mui-modal-provider";
@@ -142,7 +144,7 @@ function MainDashboard(props) {
   }, [handleDrawerToggle, setLeftNavElement]);
 
   if (user.ready && !user.loggedIn) {
-    window.location.assign(
+    Router.push(
       "/login?message=You+must+be+logged+in+to+access+the+dashboard!"
     );
   }

@@ -4,7 +4,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 
@@ -15,6 +14,8 @@ import useUser from "../../hooks/useUser";
 
 import { RECAPTCHA_SITEKEY } from "../../config/config";
 import { api } from "../../api/api";
+
+import Router from "next/router";
 
 import pageStyles from "../../styles/Page.module.css";
 import loginStyles from "../../styles/Login.module.css";
@@ -28,7 +29,7 @@ export default function SignUp(props) {
   const user = useUser();
 
   if (user.ready && user.loggedIn) {
-    window.location.replace("/dashboard?message=You are already logged in!");
+    Router.push("/dashboard?message=You are already logged in!");
   }
 
   const usernameChanged = (event) => {
@@ -52,13 +53,13 @@ export default function SignUp(props) {
     }
 
     const token = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
-      action: "login",
+      action: "register",
     });
 
     const apiResponse = await api.Register(username, password, token);
 
     if (apiResponse.success) {
-      window.location.assign("/dashboard?message=Registration successful!");
+      Router.push("/dashboard?message=Registration successful!");
     } else {
       setHelperText(apiResponse.json?.message ?? "An unknown error occurred");
     }
