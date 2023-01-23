@@ -21,7 +21,10 @@ export default function Logout(props) {
   React.useEffect(() => {
     api.Logout().then((apiResponse) => {
       if (apiResponse.success) {
-        Router.push("/?message=Successfully logged out!");
+        // Reload the user to get the new user data
+        api.GetUser(false).then(() => {
+          Router.push("/?message=Successfully logged out!");
+        });
       } else {
         const error = apiResponse.json?.message ?? "An unknown error occurred";
         Router.push(`/?message=${error}`);

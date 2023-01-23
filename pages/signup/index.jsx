@@ -59,6 +59,9 @@ export default function SignUp(props) {
     const apiResponse = await api.Register(username, password, token);
 
     if (apiResponse.success) {
+      // Reload the user to get the new user data
+      await api.GetUser(false);
+
       Router.push("/dashboard?message=Registration successful!");
     } else {
       setHelperText(apiResponse.json?.message ?? "An unknown error occurred");

@@ -53,6 +53,9 @@ export default function Login() {
     const apiResponse = await api.Login(username, password, rememberMe, token);
 
     if (apiResponse.success) {
+      // Reload the user to get the new user data
+      await api.GetUser(false);
+
       Router.push("/dashboard?message=Login successful!");
     } else if (apiResponse.json?.error === "INVALID_CREDENTIALS") {
       setHelperText("Invalid username or password");
