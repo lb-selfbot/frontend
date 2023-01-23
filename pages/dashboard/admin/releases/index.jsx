@@ -71,16 +71,20 @@ function AdminReleases(props) {
     faqStyles.faqTitle,
   ]);
 
+  const loading = (
+    <MainDashboard {...props}>
+      <Loading />
+    </MainDashboard>
+  );
+
   if (!user.ready) {
-    return (
-      <MainDashboard {...props}>
-        <Loading />
-      </MainDashboard>
-    );
+    return loading;
   }
 
   if (!user.isStaff) {
     Router.push("/dashboard?message=Forbidden");
+
+    return loading;
   }
 
   return (
