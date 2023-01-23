@@ -12,6 +12,7 @@ import pageStyles from "../../styles/Page.module.css";
 import styles from "../../styles/NotFound.module.css";
 
 export default function Logout(props) {
+  const [loggingOut, setLoggingOut] = React.useState(false);
   const user = useUser();
 
   if (user.ready && !user.loggedIn) {
@@ -19,6 +20,10 @@ export default function Logout(props) {
   }
 
   React.useEffect(() => {
+    if (loggingOut) return;
+
+    setLoggingOut(true);
+
     api.Logout().then((apiResponse) => {
       if (apiResponse.success) {
         Router.push("/?message=Successfully logged out!");

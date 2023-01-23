@@ -142,7 +142,10 @@ class Api {
   }
 
   async Logout() {
+    this.user = new User(true, false, {});
     this.getUserTime = null;
+    this.onUserChange.forEach((f) => f(this.user));
+
     return await this.http.Post("/v3/auth/logout");
   }
 
