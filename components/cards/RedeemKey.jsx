@@ -226,7 +226,6 @@ function BuyKeyDialog(props) {
         <Material3Button
           data-sellix-product="63cc61ba7c722"
           variant="contained"
-          onClick={console.log}
         >
           Buy using Cryptocurrency
         </Material3Button>

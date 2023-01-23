@@ -24,8 +24,6 @@ function getView(query) {
   const username = query["username"];
   const token = query["token"];
 
-  console.log(username, token);
-
   if (username && token) {
     return "resetPassword";
   } else {
