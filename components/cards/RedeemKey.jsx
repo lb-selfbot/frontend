@@ -99,8 +99,9 @@ function RedeemKeyDialog(props) {
       return;
     }
 
-    const error = apiResponse.json?.message ?? "An unknown error has occurred";
     setKeyError(true);
+
+    const error = apiResponse.json?.message ?? "An unknown error has occurred";
     enqueueSnackbar(error, { variant: "error" });
   };
 
@@ -167,7 +168,7 @@ function BuyKeyDialog(props) {
 
   const { open, onClose } = props;
 
-  const createOrder = async (_, _) => {
+  const createOrder = async (_data, _) => {
     const token = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
       action: "create_paypal_order",
     });
