@@ -22,12 +22,13 @@ import styles from "../../styles/Login.module.css";
 
 export default function Login() {
   const [rememberMe, setRememberMe] = React.useState(false);
+  const [loggingIn, setLoggingIn] = React.useState(false);
   const [helperText, setHelperText] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const user = useUser();
 
-  if (user.ready && user.loggedIn) {
+  if (user.ready && user.loggedIn && !loggingIn) {
     Router.push("/dashboard?message=You are already logged in!");
   }
 
@@ -46,6 +47,8 @@ export default function Login() {
   };
 
   const handleLogin = async () => {
+    setLoggingIn(true);
+
     const token = await grecaptcha.execute(RECAPTCHA_SITEKEY, {
       action: "login",
     });
@@ -60,6 +63,8 @@ export default function Login() {
     } else if (apiResponse.json?.error === "INVALID_CREDENTIALS") {
       setHelperText("Invalid username or password");
     } else {
+      setLoggingIn(false);
+
       const error = apiResponse.json?.message;
 
       setHelperText(error ?? "An unknown error has occurred");
