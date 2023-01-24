@@ -108,15 +108,15 @@ export default function TermsOfService() {
           <li>your email (if applicable)</li>
           <li>your password, in a hashed form</li>
           <li>
-            how many times you've logged in to LightningBot (excluding website
+            how many times you have logged in to LightningBot (excluding website
             logins)
           </li>
           <li>
-            the last time you've logged in to LightningBot (excluding website
+            the last time you have logged in to LightningBot (excluding website
             logins)
           </li>
           <li>
-            for how long you've logged in to LightningBot (excluding website
+            for how long you have logged in to LightningBot (excluding website
             logins)
           </li>
           <li>when your account was created</li>
