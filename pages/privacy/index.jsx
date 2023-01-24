@@ -354,7 +354,7 @@ export default function PrivacyPolicy() {
             </li>
             <li>
               <strong>
-                To save or protect an individual's vital interest.
+                To save or protect an individual&apos;s vital interest.
               </strong>
               We may process your information when necessary to save or protect
               an individual’s vital interest, such as to prevent harm.
