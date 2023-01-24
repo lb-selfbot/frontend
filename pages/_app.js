@@ -21,6 +21,7 @@ import App from "../components/App";
 import Head from "next/head";
 
 import "../styles/globals.css";
+import { PAYPAL_CLIENT_ID } from "../config/config";
 
 const augmentColor = createTheme().palette.augmentColor;
 const createColor = (color) => augmentColor({ color: { main: color } });
@@ -58,17 +59,16 @@ const lightTheme = createTheme({
 });
 
 function Providers({ theme, children }) {
+  const paypalOptions = {
+    "client-id": PAYPAL_CLIENT_ID,
+    currency: "EUR",
+  };
+
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <PayPalScriptProvider
-          options={{
-            "client-id":
-              "AYGCBr3jhWL6kVWvnlFR8F5NjNI6peg_-XrcBSQbr0iIqcZrVqX4vzTbYRcIXF8MTh5Gri9vmQCuRiRQ",
-            currency: "EUR",
-          }}
-        >
+        <PayPalScriptProvider deferLoading options={paypalOptions}>
           <SnackbarProvider maxSnack={3}>
             <ModalProvider>{children}</ModalProvider>
           </SnackbarProvider>
