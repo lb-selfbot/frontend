@@ -25,7 +25,7 @@ function Footer() {
         <Divider mb={2} />
 
         <Typography variant="subtitle1" align="center" component="p">
-          © {new Date().getFullYear()} lightning-bot.com
+          Copyright © 2020 - {new Date().getFullYear()} lightning-bot.com | All Rights Reserved
         </Typography>
       </Container>
     </Box>

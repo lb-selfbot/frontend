@@ -8,8 +8,9 @@ import { Footer } from "../../components/Footer.jsx";
 
 import homeStyles from "../../styles/Home.module.css";
 import faqStyles from "../../styles/FAQ.module.css";
+import styles from "../../styles/Terms.module.css";
 
-export default function PrivacyPolicy(props) {
+export default function PrivacyPolicy() {
   return (
     <>
       <Box className={homeStyles.landingOuterContainer}>
@@ -37,7 +38,7 @@ export default function PrivacyPolicy(props) {
         </Box>
       </Box>
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className={styles.container}>
         <div id="introduction">
           <p>
             This privacy notice for LightningBot (<strong>"Company ,"</strong> "
