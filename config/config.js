@@ -2,7 +2,7 @@ const DEBUG = false;
 
 const MAINTENANCE = false;
 
-const COMING_SOON_DATE = new Date(Date.UTC(2023, 0, 24, 14, 0, 0));
+const COMING_SOON_DATE = new Date(Date.UTC(2023, 0, 24, 15, 0, 0));
 
 const COMING_SOON = new Date() < COMING_SOON_DATE;
 
