@@ -258,6 +258,7 @@ export default function PrivacyPolicy() {
           <a
             href="https://www.paypal.com/webapps/mpp/ua/privacy-full"
             target="_blank"
+            rel="noreferrer"
           >
             https://www.paypal.com/webapps/mpp/ua/privacy-full
           </a>
