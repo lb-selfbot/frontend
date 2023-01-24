@@ -68,7 +68,7 @@ function Providers({ theme, children }) {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <PayPalScriptProvider deferLoading options={paypalOptions}>
+        <PayPalScriptProvider options={paypalOptions}>
           <SnackbarProvider maxSnack={3}>
             <ModalProvider>{children}</ModalProvider>
           </SnackbarProvider>
