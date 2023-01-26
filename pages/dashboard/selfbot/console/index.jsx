@@ -14,6 +14,7 @@ import { Card } from "../../../../components/Card";
 
 import { useSelfbotConnected } from "../../../../hooks/useSelfbotConnected";
 import { useConsole } from "../../../../hooks/useConsole";
+import useStats from "../../../../hooks/useStats";
 import useUser from "../../../../hooks/useUser";
 import useWebSocket from "react-use-websocket";
 
@@ -29,6 +30,7 @@ import styles from "../../../../styles/Console.module.css";
 function SelfbotConsole(props) {
   const selfbotConnected = useSelfbotConnected();
   const console = useConsole();
+  const stats = useStats();
   const user = useUser();
 
   const { sendJsonMessage } = useWebSocket(WS_URL, { share: true });
@@ -113,7 +115,7 @@ function SelfbotConsole(props) {
             <Card
               lg={4}
               title="Version"
-              content={"4.0.0"}
+              content={stats.version ?? "Loading"}
               icon={<DeviceHubIcon />}
             />
 
