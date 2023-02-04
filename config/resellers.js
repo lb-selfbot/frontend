@@ -1,4 +1,6 @@
 export const resellers = [
-  // { name: "Some Reseller", url: "https://example.com" },
-  // { name: "Another Reseller", url: "https://example.com" },
+  {
+    name: "Chimera Mods",
+    url: "https://chimeramods.com/product/lightning-self-bot",
+  },
 ];
