@@ -41,8 +41,8 @@ const configTabs = [
     component: <ConfigEditor fields={configFields.events} />,
   },
   {
-    name: "RPC",
-    component: <ConfigEditor fields={configFields.rpc} />,
+    name: "Activity",
+    component: <ConfigEditor fields={configFields.activity} />,
   },
   {
     name: "UI",

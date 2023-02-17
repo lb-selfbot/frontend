@@ -33,9 +33,9 @@ export const configFields = {
           icon: "text",
         },
         {
-          label: "URL Embed",
-          value: "URLEmbed",
-          info: "The bot will respond to commands with a hidden URL that will have a Discord embed.",
+          label: "Indent",
+          value: "Indent",
+          info: "The bot will respond to commands with indented text.",
           icon: "link",
         },
       ],
@@ -390,147 +390,227 @@ export const configFields = {
       },
     },
   ],
-  rpc: [
+  activity: [
     {
-      name: "Enabled",
-      type: "switch",
-      info: "Turn Rich Presence on or off.",
-      get: (config) => config.RPC?.Enabled,
+      name: 'Enabled',
+      type: 'switch',
+      get: (config) => config.Activity?.Enabled,
       set: (config, value) => {
-        config.RPC.Enabled = value;
+        config.Activity.Enabled = value;
         return config;
       },
+      info: 'Turn Discord activity on or off.',
     },
     {
-      name: "Client ID",
-      type: "text",
-      info: "The Client ID for your Rich Presence application. You can find it in the Discord Developers site.",
-      get: (config) => config.RPC?.ClientID,
+      name: 'Activity Type',
+      type: 'dropdown',
+      get: (config) => config.Activity?.ActivityType,
       set: (config, value) => {
-        config.RPC.ClientID = value;
+        config.Activity.ActivityType = value;
         return config;
       },
+      info:
+          'The type of activity the bot will display. The Discord client must be running to use RPC.',
+      options: [
+        {
+          label: 'RPC',
+          value: 'RPC',
+          info: 'Rich Presence',
+          icon: 'code-braces',
+        },
+        {
+          label: 'Custom Activity',
+          value: 'CustomActivity',
+          info: 'Custom Activity',
+          icon: 'text',
+        },
+      ],
+    },
+      {
+        name: 'Type',
+        type: 'dropdown',
+        get: (config) => config.Activity?.Type,
+        set: (config, value) => {
+          config.Activity.Type = value;
+          return config;
+        },
+        info: 'Playing, listening, watching, streaming or competing.',
+        options: [
+          {
+            label: 'Playing',
+            value: 'Playing',
+            info: 'Playing activity',
+            icon: 'code-braces',
+          },
+          {
+            label: 'Listening',
+            value: 'Listening',
+            info: 'Listening activity',
+            icon: 'code-braces',
+          },
+          {
+            label: 'Watching',
+            value: 'Watching',
+            info: 'Watching activity',
+            icon: 'code-braces',
+          },
+          {
+            label: 'Streaming',
+            value: 'Streaming',
+            info: 'Streaming activity',
+            icon: 'code-braces',
+          },
+          {
+            label: 'Competing',
+            value: 'Competing',
+            info: 'Competing activity',
+            icon: 'code-braces',
+          },
+        ],
+      },
+      {
+        name: 'Client ID',
+        type: 'text',
+        get: (config) => config.Activity?.ClientID,
+        set: (config, value) => {
+          config.Activity.ClientID = value;
+          return config;
+        },
+        info: 'The Discord client ID for the RPC application.',
+      },
+      {
+        name: 'Name',
+        type: 'text',
+        get: (config) => config.Activity?.Name,
+        set: (config, value) => {
+          config.Activity.Name = value;
+          return config;
+        },
+        info: 'The name of the activity.',
+      },
+    {
+      name: 'State',
+      type: 'text',
+      get: (config) => config.Activity?.State,
+      set: (config, value) => {
+        config.Activity.State = value;
+        return config;
+      },
+      info: 'The state text for the activity.',
     },
     {
-      name: "Invitable",
-      type: "switch",
-      info: "If enabled, you can send fake game invites to other people.",
-      get: (config) => config.RPC?.Invitable,
+      name: 'Details',
+      type: 'text',
+      get: (config) => config.Activity?.Details,
       set: (config, value) => {
-        config.RPC.Invitable = value;
+        config.Activity.Details = value;
         return config;
       },
+      info: 'The details text for the activity.',
     },
     {
-      name: "Time",
-      type: "switch",
-      info: "If enabled, your Rich Presence will show how much time has elapsed.",
-      get: (config) => config.RPC?.Time,
+      name: 'Large Image',
+      type: 'text',
+      get: (config) => config.Activity?.LargeImage,
       set: (config, value) => {
-        config.RPC.Time = value;
+        config.Activity.LargeImage = value;
         return config;
       },
+      info:
+          'The large image key for the activity.\n\nUse the [p]cacreateimageid command to create an image key.',
     },
     {
-      name: "Large Image ID",
-      type: "text",
-      info: "The ID for the large image.",
-      get: (config) => config.RPC?.LargeImage,
+      name: 'Large Image Text',
+      type: 'text',
+      get: (config) => config.Activity?.LargeImageText,
       set: (config, value) => {
-        config.RPC.LargeImage = value;
+        config.Activity.LargeImageText = value;
         return config;
       },
+      info: 'Tooltip text for the large image.',
     },
     {
-      name: "Large Image Text",
-      type: "text",
-      info: "The text for the large image.",
-      get: (config) => config.RPC?.LargeText,
+      name: 'Small Image',
+      type: 'text',
+      get: (config) => config.Activity?.SmallImage,
       set: (config, value) => {
-        config.RPC.LargeText = value;
+        config.Activity.SmallImage = value;
         return config;
       },
+      info:
+          'The small image key for the activity.\n\nUse the [p]cacreateimageid command to create an image key.',
     },
     {
-      name: "Small Image ID",
-      type: "text",
-      info: "The ID for the small image.",
-      get: (config) => config.RPC?.SmallImage,
+      name: 'Small Image Text',
+      type: 'text',
+      get: (config) => config.Activity?.SmallImageText,
       set: (config, value) => {
-        config.RPC.SmallImage = value;
+        config.Activity.SmallImageText = value;
         return config;
       },
+      info: 'Tooltip text for the small image.',
     },
-    {
-      name: "Small Image Text",
-      type: "text",
-      info: "The text for the small image.",
-      get: (config) => config.RPC?.SmallText,
-      set: (config, value) => {
-        config.RPC.SmallText = value;
-        return config;
+      {
+        name: 'Invitable',
+        type: 'switch',
+        get: (config) => config.Activity?.Invitable,
+        set: (config, value) => {
+          config.Activity.Invitable = value;
+          return config;
+        },
+        info: 'If enabled, you can send fake game invites to other people.',
       },
-    },
-    {
-      name: "Details",
-      type: "text",
-      info: "The details text for the Rich Presence.",
-      get: (config) => config.RPC?.Details,
-      set: (config, value) => {
-        config.RPC.Details = value;
-        return config;
+      {
+        name: 'Time',
+        type: 'switch',
+        get: (config) => config.Activity?.Time,
+        set: (config, value) => {
+          config.Activity.Time = value;
+          return config;
+        },
+        info:
+            'If enabled, your Rich Presence will show how much time has elapsed.',
       },
-    },
-    {
-      name: "State",
-      type: "text",
-      info: "The state text for the Rich Presence.",
-      get: (config) => config.RPC?.State,
-      set: (config, value) => {
-        config.RPC.State = value;
-        return config;
+      {
+        name: 'Button 1 Label',
+        type: 'text',
+        get: (config) => config.Activity?.Button1Label,
+        set: (config, value) => {
+          config.Activity.Button1Label = value;
+          return config;
+        },
+        info: 'The label for the first button.',
       },
-    },
-    {
-      name: "Button 1 Label",
-      type: "text",
-      info: "The label for the first button.",
-      get: (config) => config.RPC?.Buttons[0]?.Label,
-      set: (config, value) => {
-        config.RPC.Buttons[0].Label = value;
-        return config;
+      {
+        name: 'Button 1 URL',
+        type: 'url',
+        get: (config) => config.Activity?.Button1URL,
+        set: (config, value) => {
+          config.Activity.Button1URL = value;
+          return config;
+        },
+        info: 'The URL for the first button.',
       },
-    },
-    {
-      name: "Button 1 URL",
-      type: "url",
-      info: "The URL for the first button.",
-      get: (config) => config.RPC?.Buttons[0]?.URL,
-      set: (config, value) => {
-        config.RPC.Buttons[0].URL = value;
-        return config;
+      {
+        name: 'Button 2 Label',
+        type: 'text',
+        get: (config) => config.Activity?.Button2Label,
+        set: (config, value) => {
+          config.Activity.Button2Label = value;
+          return config;
+        },
+        info: 'The label for the second button.',
       },
-    },
-    {
-      name: "Button 2 Label",
-      type: "text",
-      info: "The label for the second button.",
-      get: (config) => config.RPC?.Buttons[1]?.Label,
-      set: (config, value) => {
-        config.RPC.Buttons[1].Label = value;
-        return config;
+      {
+        name: 'Button 2 URL',
+        type: 'url',
+        get: (config) => config.Activity?.Button2URL,
+        set: (config, value) => {
+          config.Activity.Button2URL = value;
+          return config;
+        },
+        info: 'The URL for the second button.',
       },
-    },
-    {
-      name: "Button 2 URL",
-      type: "url",
-      info: "The URL for the second button.",
-      get: (config) => config.RPC?.Buttons[1]?.URL,
-      set: (config, value) => {
-        config.RPC.Buttons[1].URL = value;
-        return config;
-      },
-    },
   ],
   ui: [
     {
