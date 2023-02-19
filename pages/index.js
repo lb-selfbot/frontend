@@ -42,7 +42,7 @@ export default function Home() {
               </Typography>
               <Typography variant="h6" className={styles.landingSubtitle}>
                 LightningBot is a Discord selfbot featuring a beautiful UI, over
-                800 commands, multi-platform support, and a lot of features.
+                1000 commands, multi-platform support, and a lot of features.
               </Typography>
               <Material3Button
                 variant="contained"

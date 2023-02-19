@@ -18,7 +18,7 @@ export const pricingTiers = [
     price: "5",
     description: [
       "Lifetime access",
-      "800+ commands",
+      "1000+ commands",
       "Multi Platform",
       "Nitro Sniper",
       "Giveaway Sniper",
