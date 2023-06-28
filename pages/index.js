@@ -72,12 +72,12 @@ export default function Home() {
       <Feature.Container>
         <Feature
           title="Customizable"
-          text="LightningBot was made with customzability in mind. You can modify a lot of settings via the UI or directly in Discord using the config commands."
+          text="LightningBot was made with customizability in mind. You can modify a lot of settings via the UI or directly in Discord using the config commands."
           icon={<Settings />}
         />
         <Feature
           title="Snipers"
-          text="LightningBot can automatically join giveaways and try to redeem Discord Nitro codes."
+          text="LightningBot can automatically join giveaways and try to redeem Discord Nitro codes on multiple accounts at once."
           icon={<Celebration />}
         />
         <Feature
