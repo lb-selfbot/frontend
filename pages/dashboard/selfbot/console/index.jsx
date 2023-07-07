@@ -23,7 +23,6 @@ import useUser from "../../../../hooks/useUser";
 import useWebSocket from "react-use-websocket";
 
 import { millisecondsToTime } from "../../../../utils/millisecondsToTime";
-import { parseConsoleText } from "../../../../utils/parseConsoleText";
 import { classes } from "../../../../utils/classes";
 import { WS_URL } from "../../../../config/config";
 
@@ -32,23 +31,14 @@ import faqStyles from "../../../../styles/FAQ.module.css";
 import styles from "../../../../styles/Console.module.css";
 
 function getConsoleHTML(console) {
-  const consoleHTML = sanitize(console);
+  var consoleHTML = sanitize(console);
 
-  const consoleLines = consoleHTML.split("\n");
+  consoleHTML = consoleHTML.replace(
+    '<div style="text-align:center;">',
+    '<div style="display:inline-block;width:100%;text-align:center;">'
+  );
 
-  const parsedConsoleLines = consoleLines.map((line) => {
-    if (line.startsWith("ALIGN_CENTER")) {
-      return (
-        "<span style='display:inline-block;width:100%;text-align:center;'>" +
-        line.replace("ALIGN_CENTER", "") +
-        "</span>"
-      );
-    }
-
-    return line;
-  });
-
-  return parsedConsoleLines.join("\n");
+  return consoleHTML;
 }
 
 function SelfbotConsole(props) {
