@@ -3,7 +3,8 @@ class WebsocketData {
     this.onChangeListeners = [];
 
     this.selfbotConnected = false;
-    this.console = '<text Color="#C1EFFF">Waiting for connection...</text>';
+    this.console =
+      '<span style="color:rgb(193, 239, 255);">Waiting for connection...</span>';
     this.config = {};
   }
 
@@ -13,12 +14,12 @@ class WebsocketData {
   }
 
   setConsole(value) {
-    this.console = value;
+    this.console = value || "";
     this.onChange();
   }
 
   appendConsole(value) {
-    this.console += `\n${value}`;
+    this.console += `${value}`;
     this.onChange();
   }
 

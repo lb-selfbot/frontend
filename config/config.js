@@ -7,7 +7,7 @@ const COMING_SOON_DATE = new Date(Date.UTC(2023, 0, 24, 15, 0, 0));
 const COMING_SOON = new Date() < COMING_SOON_DATE;
 
 const API_URL = DEBUG
-  ? "http://127.0.0.1:8000/api"
+  ? "https://beta-api.lightning-bot.com/api"
   : "https://api.lightning-bot.com/api";
 
 const WS_URL = API_URL.replace("http", "ws") + "/v3/ws/website";

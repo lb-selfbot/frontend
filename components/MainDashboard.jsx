@@ -31,6 +31,8 @@ function onWebsocketMessage(rawMessage, enqueueSnackbar, showModal) {
   const message = JSON.parse(rawMessage.data);
   const data = message.data;
 
+  console.log(message);
+
   switch (message.op) {
     case "SELFBOT_CONNECT":
       wsData.setSelfbotConnected(true);
@@ -46,7 +48,7 @@ function onWebsocketMessage(rawMessage, enqueueSnackbar, showModal) {
     case "SELFBOT_DISCONNECT":
       wsData.setSelfbotConnected(false);
       wsData.setConsole(
-        '<text Color="#C1EFFF">Waiting for connection...</text>'
+        "<span style='color:rgb(193, 239, 255);'>Waiting for connection...</span>"
       );
 
       enqueueSnackbar("Selfbot disconnected", { variant: "info" });
@@ -74,7 +76,9 @@ function onWebsocketClose(event, enqueueSnackbar) {
   console.log(event);
 
   wsData.setSelfbotConnected(false);
-  wsData.setConsole('<text Color="#C1EFFF">Waiting for connection...</text>');
+  wsData.setConsole(
+    '<span style="color:rgb(193, 239, 255);">Waiting for connection...</span>'
+  );
 
   enqueueSnackbar("Selfbot disconnected", { variant: "info" });
 }

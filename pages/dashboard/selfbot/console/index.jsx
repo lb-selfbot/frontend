@@ -1,5 +1,7 @@
 import React from "react";
 
+import Image from "next/image";
+
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -7,6 +9,8 @@ import Box from "@mui/material/Box";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DeviceHubIcon from "@mui/icons-material/DeviceHub";
 import ComputerIcon from "@mui/icons-material/Computer";
+
+import { sanitize } from "isomorphic-dompurify";
 
 import { Material3Button } from "../../../../components/Material3Button";
 import { MainDashboard } from "../../../../components/MainDashboard";
@@ -27,6 +31,26 @@ import homeStyles from "../../../../styles/Home.module.css";
 import faqStyles from "../../../../styles/FAQ.module.css";
 import styles from "../../../../styles/Console.module.css";
 
+function getConsoleHTML(console) {
+  const consoleHTML = sanitize(console);
+
+  const consoleLines = consoleHTML.split("\n");
+
+  const parsedConsoleLines = consoleLines.map((line) => {
+    if (line.startsWith("ALIGN_CENTER")) {
+      return (
+        "<span style='display:inline-block;width:100%;text-align:center;'>" +
+        line.replace("ALIGN_CENTER", "") +
+        "</span>"
+      );
+    }
+
+    return line;
+  });
+
+  return parsedConsoleLines.join("\n");
+}
+
 function SelfbotConsole(props) {
   const selfbotConnected = useSelfbotConnected();
   const console = useConsole();
@@ -35,9 +59,11 @@ function SelfbotConsole(props) {
 
   const { sendJsonMessage } = useWebSocket(WS_URL, { share: true });
 
-  const parsedConsole = React.useMemo(() => {
-    return parseConsoleText(console);
-  }, [console]);
+  const consoleHTML = React.useMemo(() => getConsoleHTML(console), [console]);
+
+  if (typeof window !== "undefined") {
+    window.console.log(console, consoleHTML);
+  }
 
   const onExitClick = () => sendJsonMessage({ op: "EXIT" });
   const onRestartClick = () => sendJsonMessage({ op: "RESTART" });
@@ -77,7 +103,16 @@ function SelfbotConsole(props) {
             </Typography>
 
             <Box className={consoleContainerClasses}>
-              <pre>{parsedConsole}</pre>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Image
+                  src="/assets/Banner.png"
+                  width={650}
+                  height={150}
+                  alt="Banner"
+                />
+              </Box>
+
+              <pre dangerouslySetInnerHTML={{ __html: consoleHTML }} />
             </Box>
 
             <Box
