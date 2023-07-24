@@ -20,7 +20,7 @@ export const archOptions = {
   macos: [{ label: "Intel/Apple Silicon", value: "amd/arm" }],
 };
 
-const mutualArchInfo = "Select your CPU's architecure. ";
+const mutualArchInfo = "Select your CPU's architecture. ";
 
 export const archInfo = {
   windows:
