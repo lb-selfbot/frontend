@@ -2,6 +2,7 @@ export const osOptions = [
   { label: "Windows", value: "windows" },
   { label: "Linux", value: "linux" },
   { label: "macOS", value: "macos" },
+  { label: "Android", value: "android" },
 ];
 
 export const osInfo = "Select your computer's operating system.";
@@ -18,6 +19,10 @@ export const archOptions = {
     { label: "arm (32-bit)", value: "arm" },
   ],
   macos: [{ label: "Intel/Apple Silicon", value: "amd/arm" }],
+  android: [
+    { label: "arm64 (64-bit)", value: "arm64" },
+    { label: "armv7 (32-bit)", value: "arm" },
+  ],
 };
 
 const mutualArchInfo = "Select your CPU's architecture. ";
@@ -31,6 +36,9 @@ export const archInfo = {
     "If your Linux computer has an ARM chip, choose either arm or arm64. If it uses X86 or X86-64, choose 386 or amd64 respectively.",
   macos:
     "Both Intel and Apple Silicon Macs can use the same file as both architectures are combined into one file.",
+  android:
+    mutualArchInfo +
+    "Select arm64 if your phone is 64-bit. If it is 32-bit, choose arm.",
 };
 
 export const typeOptions = {
@@ -44,6 +52,9 @@ export const typeOptions = {
   ],
   macos: [
     { label: "With UI", value: "ui" },
+    { label: "With Console", value: "selfbot" },
+  ],
+  android: [
     { label: "With Console", value: "selfbot" },
   ],
 };

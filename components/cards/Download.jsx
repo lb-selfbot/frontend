@@ -132,14 +132,14 @@ export function Download() {
 
   // Build and open the download URL
   const onDownloadClick = (_event) => {
-    let url = `https://api.lightning-bot.com/static/executables/${osValue}`;
+    let url = `https://api.lightning-bot.com/static/executables`;
 
     if (osValue === "windows") {
-      url += `/${archValue}/${typeValue}.exe`;
+      url += `/windows/${archValue}/${typeValue}.exe`;
     } else if (osValue === "macos") {
-      url += `/${typeValue}${typeValue === "ui" ? ".dmg" : ""}`;
-    } else if (osValue === "linux") {
-      url += `/${archValue}/${typeValue}${typeValue === "ui" ? ".deb" : ""}`;
+      url += `/macos/${typeValue}${typeValue === "ui" ? ".dmg" : ""}`;
+    } else if (osValue === "linux" || osValue === "android") {
+      url += `/linux/${archValue}/${typeValue}${typeValue === "ui" ? ".deb" : ""}`;
     }
 
     window.open(url, "_blank");
