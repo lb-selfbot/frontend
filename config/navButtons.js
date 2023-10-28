@@ -10,6 +10,7 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import DataThresholdingIcon from "@mui/icons-material/DataThresholding";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ConfigIcon from "@mui/icons-material/Settings";
+import StorageIcon from "@mui/icons-material/Storage";
 
 import { COMING_SOON, MAINTENANCE } from "./config.js";
 
@@ -93,6 +94,11 @@ function getDashboardNavButtons(user) {
         text: "Config",
         to: "/dashboard/selfbot/config",
         icon: (props) => <ConfigIcon {...props} />,
+      },
+      {
+        text: "Hosting",
+        to: "/dashboard/selfbot/hosting",
+        icon: (props) => <StorageIcon {...props} />,
       },
     ],
   };

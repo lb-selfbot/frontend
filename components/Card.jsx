@@ -87,6 +87,8 @@ function Card(props) {
               fontSize="20px"
             >
               {content}
+
+              {props.children}
             </Typography>
           </CardContent>
         </Box>

@@ -111,3 +111,7 @@ a {
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+#sellix-container {
+  color-scheme: light;
+}

@@ -4,6 +4,11 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import Box from "@mui/material/Box";
 
 import {
   DeveloperBoard,
@@ -35,6 +40,8 @@ import Router from "next/router";
 
 function AdminDashboard(props) {
   const [key, setKey] = React.useState("");
+  const [creditKey, setCreditKey] = React.useState("");
+  const [creditAmount, setCreditAmount] = React.useState(31 * 24 * 60);
   const stats = useStats();
   const user = useUser();
 
@@ -50,6 +57,15 @@ function AdminDashboard(props) {
   const onCreateKeyClick = async () => {
     const apiResponse = await api.CreateKey();
     setKey(apiResponse.json.key);
+  };
+
+  const onCreateCreditKeyClick = async () => {
+    const apiResponse = await api.CreateCreditKey(creditAmount);
+    setCreditKey(apiResponse.json.key);
+  };
+
+  const handleCreditAmountChange = (event) => {
+    setCreditAmount(event.target.value);
   };
 
   const titleClasses = classes([
@@ -142,6 +158,50 @@ function AdminDashboard(props) {
 
               <Material3Button variant="contained" onClick={onCreateKeyClick}>
                 Create Key
+              </Material3Button>
+            </CardContent>
+          </Card.MuiCard>
+        </Card.Container>
+
+        <Card.Container xs={12} sm={12} lg={6}>
+          <Card.MuiCard sx={{ marginTop: 2 }}>
+            <CardContent className={dashStyles.itemContainer}>
+              <Typography variant="h4" className={dashStyles.itemTitle}>
+                Credit Key Creator
+              </Typography>
+
+              <Box sx={{ display: "flex" }}>
+                <FormControl sx={{ flex: 1, mr: 1 }}>
+                  <InputLabel id="demo-simple-select-label">
+                    Credit Amount
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={creditAmount}
+                    label="Credit Amount"
+                    onChange={handleCreditAmountChange}
+                  >
+                    <MenuItem value={31 * 24 * 60}>1 Month</MenuItem>
+                    <MenuItem value={93 * 24 * 60}>3 Months</MenuItem>
+                    <MenuItem value={186 * 24 * 60}>6 Months</MenuItem>
+                  </Select>
+                </FormControl>
+
+                <TextField
+                  variant="filled"
+                  label="Credit Key"
+                  value={creditKey}
+                  className={loginStyles.input}
+                  sx={{ flex: 4, ml: 1 }}
+                />
+              </Box>
+
+              <Material3Button
+                variant="contained"
+                onClick={onCreateCreditKeyClick}
+              >
+                Create Credit Key
               </Material3Button>
             </CardContent>
           </Card.MuiCard>

@@ -22,6 +22,8 @@ class User {
       this.dateJoined = new Date(json.date_joined);
       this.loginTime = json.login_time;
       this.key = json.key;
+      this.isHosting = json.is_hosting;
+      this.hostingCredit = json.hosting_credit;
     }
   }
 }
@@ -185,6 +187,13 @@ class Api {
     });
   }
 
+  async RedeemCreditKey(key, captcha_token) {
+    return await this.http.Post("/v3/selfbot/redeem-credit-key", {
+      key: key,
+      captcha_token: captcha_token,
+    });
+  }
+
   async SetEmail(email, password) {
     return await this.http.Post("/v3/auth/set-email", {
       email: email,
@@ -206,6 +215,12 @@ class Api {
 
   async CreateKey() {
     return await this.http.Post("/v3/admin/create-key");
+  }
+
+  async CreateCreditKey(creditAmount) {
+    return await this.http.Post("/v3/admin/create-credit-key", {
+      credit_amount: creditAmount,
+    });
   }
 
   async GetTableData(tableName) {
@@ -238,6 +253,32 @@ class Api {
     return await this.http.Post("/v3/admin/action/key", {
       key_id: key_id,
       action: action,
+    });
+  }
+
+  async EnableHosting(token) {
+    return await this.http.Post("/v3/selfbot/enable-hosting", {
+      token: token,
+    });
+  }
+
+  async DisableHosting() {
+    return await this.http.Post("/v3/selfbot/disable-hosting", {});
+  }
+
+  async ListHostingFiles() {
+    return await this.http.Get("/v3/selfbot/hosting/list-files");
+  }
+
+  async DeleteFile(path) {
+    return await this.http.Post("/v3/selfbot/hosting/delete-file", {
+      file_path: path,
+    });
+  }
+
+  async DeleteFolder(path) {
+    return await this.http.Post("/v3/selfbot/hosting/delete-folder", {
+      folder_path: path,
     });
   }
 }
