@@ -24,6 +24,7 @@ class User {
       this.key = json.key;
       this.isHosting = json.is_hosting;
       this.hostingCredit = json.hosting_credit;
+      this.hostingLifetime = json.hosting_lifetime;
     }
   }
 }
@@ -220,6 +221,7 @@ class Api {
   async CreateCreditKey(creditAmount) {
     return await this.http.Post("/v3/admin/create-credit-key", {
       credit_amount: creditAmount,
+      is_lifetime: (creditAmount === 0).toString(),
     });
   }
 

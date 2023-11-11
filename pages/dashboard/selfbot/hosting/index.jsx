@@ -73,6 +73,10 @@ function SelfbotHosting(props) {
     parsedHostingTime = `${hostingTime.days}d ${parsedHostingTime}`;
   }
 
+  if (user.hostingLifetime) {
+    parsedHostingTime = "Lifetime";
+  }
+
   const onHostingToggle = () => {
     if (!user.ready) {
       return;

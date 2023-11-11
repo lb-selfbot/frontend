@@ -185,6 +185,7 @@ function AdminDashboard(props) {
                     <MenuItem value={31 * 24 * 60}>1 Month</MenuItem>
                     <MenuItem value={93 * 24 * 60}>3 Months</MenuItem>
                     <MenuItem value={186 * 24 * 60}>6 Months</MenuItem>
+                    <MenuItem value={0}>Lifetime</MenuItem>
                   </Select>
                 </FormControl>
 
