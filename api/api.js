@@ -258,6 +258,13 @@ class Api {
     });
   }
 
+  async CreditKeyAction(key_id, action) {
+    return await this.http.Post("/v3/admin/action/credit-key", {
+      key_id: key_id,
+      action: action,
+    });
+  }
+
   async EnableHosting(token) {
     return await this.http.Post("/v3/selfbot/enable-hosting", {
       token: token,

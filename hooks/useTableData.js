@@ -6,6 +6,7 @@ const tableChangeListeners = {
   users: [],
   "online-users": [],
   keys: [],
+  "credit-keys": [],
   orders: [],
   releases: [],
 };

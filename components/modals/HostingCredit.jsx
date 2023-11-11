@@ -7,7 +7,7 @@ import {
   DialogContentText,
   DialogActions,
   Divider,
-  TextField
+  TextField,
 } from "@mui/material";
 
 import { RECAPTCHA_SITEKEY } from "../../config/config";
@@ -64,7 +64,7 @@ export default function SelfbotHostingModal({ open, setOpen }) {
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
-          1 Month - €2.00
+          1 Month - €1.00
         </Material3Button>
 
         <Divider
@@ -76,7 +76,7 @@ export default function SelfbotHostingModal({ open, setOpen }) {
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
-          3 Months - €5.00
+          3 Months - €2.50
         </Material3Button>
 
         <Divider
@@ -88,7 +88,19 @@ export default function SelfbotHostingModal({ open, setOpen }) {
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
-          6 Months - €8.00
+          6 Months - €4.50
+        </Material3Button>
+
+        <Divider
+          sx={{ backgroundColor: "#bbb", margin: "8px auto", width: "70%" }}
+        />
+
+        <Material3Button
+          data-sellix-product="6527be362edd4"
+          variant="contained"
+          sx={{ margin: "auto", width: "80%" }}
+        >
+          Lifetime - €10.00
         </Material3Button>
 
         <Divider sx={{ backgroundColor: "#bbb", my: 4 }} />

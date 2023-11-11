@@ -2,6 +2,7 @@ import { UserActionButton } from "../components/dbactions/UserActionButton";
 import { KeyActionButton } from "../components/dbactions/KeyActionButton";
 import { OrderActionButton } from "../components/dbactions/OrderActionButton";
 import { DeleteReleaseButton } from "../components/dbactions/DeleteReleaseButton";
+import { CreditKeyActionButton } from "../components/dbactions/CreditKeyActionButton";
 
 const usersColumns = [
   {
@@ -40,6 +41,11 @@ const usersColumns = [
     description: "User flags: staff, tester, etc.",
     sortable: false,
     width: 200,
+  },
+  {
+    field: "hostingCredit",
+    headerName: "Hosting credit",
+    width: 120,
   },
   {
     field: "createdAt",
@@ -137,6 +143,53 @@ const keysColumns = [
   },
 ];
 
+const creditKeysColumns = [
+  {
+    field: "id",
+    headerName: "ID",
+    width: 100,
+  },
+  {
+    field: "key",
+    headerName: "Key",
+    width: 200,
+  },
+  {
+    field: "createdBy",
+    headerName: "Created By",
+    width: 170,
+  },
+  {
+    field: "createdAt",
+    headerName: "Created At",
+    width: 160,
+  },
+  {
+    field: "createReason",
+    headerName: "Create Reason",
+    width: 250,
+  },
+  {
+    field: "creditAmount",
+    headerName: "Credit Amount",
+    width: 200,
+  },
+  {
+    field: "redeemedBy",
+    headerName: "Redeemed By",
+    width: 200,
+  },
+  {
+    field: "",
+    headerName: "Actions",
+    sortable: false,
+    width: 140,
+    renderCell: (params) => {
+      return <CreditKeyActionButton gridCellParams={params} />;
+    },
+  },
+];
+
 const ordersColumns = [
   {
     field: "id",
@@ -225,6 +278,7 @@ export {
   usersColumns,
   onlineUsersColumns,
   keysColumns,
+  creditKeysColumns,
   ordersColumns,
   releasesColumns,
 };

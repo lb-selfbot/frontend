@@ -19,6 +19,7 @@ import {
   onlineUsersColumns,
   keysColumns,
   ordersColumns,
+  creditKeysColumns,
 } from "../../../../config/tableColumns";
 
 import homeStyles from "../../../../styles/Home.module.css";
@@ -28,6 +29,7 @@ function AdminDatabase(props) {
   const usersData = useTableData("users");
   const onlineUsersData = useTableData("online-users");
   const keysData = useTableData("keys");
+  const creditKeysData = useTableData("credit-keys");
   const ordersData = useTableData("orders");
   const user = useUser();
 
@@ -107,6 +109,23 @@ function AdminDatabase(props) {
           <DataGrid
             rows={keysData}
             columns={keysColumns}
+            pkeySize={5}
+            rowsPerPkeyOptions={[5]}
+          />
+        </Grid>
+
+        {/* Credit Keys table */}
+
+        <Grid item xs={12} marginLeft="10px">
+          <Typography variant="h4" className={titleClasses}>
+            Credit Keys
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12} height="500px">
+          <DataGrid
+            rows={creditKeysData}
+            columns={creditKeysColumns}
             pkeySize={5}
             rowsPerPkeyOptions={[5]}
           />
