@@ -4,7 +4,7 @@ export const resellers = [
     url: "https://hbh.lol/",
   },
   {
-    name: "GoldsKeys",
-    url: "https://goldskeys.cc/",
-  },
+    name: "Cheddlatron",
+    url: "https://cheddshop.sellpass.io/products/Lightning-Selfbot",
+  }
 ];
