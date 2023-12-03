@@ -60,7 +60,9 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         </DialogContentText>
 
         <Material3Button
-          data-sellix-product="6527be362edd4"
+          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
+          data-sellpass-domain="lightningbot.sellpass.io"
+          // data-sellix-product="6527be362edd4"
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
@@ -72,7 +74,9 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         />
 
         <Material3Button
-          data-sellix-product="6527be362edd4"
+          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
+          data-sellpass-domain="lightningbot.sellpass.io"
+          // data-sellix-product="6527be362edd4"
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
@@ -84,7 +88,9 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         />
 
         <Material3Button
-          data-sellix-product="6527be362edd4"
+          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
+          data-sellpass-domain="lightningbot.sellpass.io"
+          // data-sellix-product="6527be362edd4"
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
@@ -96,7 +102,9 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         />
 
         <Material3Button
-          data-sellix-product="6527be362edd4"
+          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
+          data-sellpass-domain="lightningbot.sellpass.io"
+          // data-sellix-product="6527be362edd4"
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >

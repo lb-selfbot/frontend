@@ -233,7 +233,9 @@ function BuyKeyDialog(props) {
         <Divider sx={{ backgroundColor: "#bbb", my: 1 }} />
 
         <Material3Button
-          data-sellix-product="63cc61ba7c722"
+          // data-sellix-product="63cc61ba7c722"
+          data-sellpass-product-path="/products/LightningBot"
+          data-sellpass-domain="lightningbot.sellpass.io"
           variant="contained"
         >
           Buy using Cryptocurrency
