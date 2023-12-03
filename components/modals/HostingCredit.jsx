@@ -21,6 +21,8 @@ import { useSnackbar } from "notistack";
 
 import { api } from "../../api/api";
 
+import { openSellpassEmbed } from "../../utils/sellpass";
+
 export default function SelfbotHostingModal({ open, setOpen }) {
   const [key, setKey] = React.useState("");
   const [error, setError] = React.useState(false);
@@ -51,6 +53,12 @@ export default function SelfbotHostingModal({ open, setOpen }) {
     enqueueSnackbar(error, { variant: "error" });
   };
 
+  const openSellpass = () =>
+    openSellpassEmbed(
+      "lightningbot.sellpass.io",
+      "/LightningBot-Hosting-Key"
+    );
+
   return (
     <Dialog open={open} onClose={closeDialog} fullWidth>
       <DialogTitle>Hosting Credit</DialogTitle>
@@ -60,9 +68,7 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         </DialogContentText>
 
         <Material3Button
-          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
-          data-sellpass-domain="lightningbot.sellpass.io"
-          // data-sellix-product="6527be362edd4"
+          onClick={openSellpass}
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
@@ -74,9 +80,7 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         />
 
         <Material3Button
-          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
-          data-sellpass-domain="lightningbot.sellpass.io"
-          // data-sellix-product="6527be362edd4"
+          onClick={openSellpass}
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
@@ -88,9 +92,7 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         />
 
         <Material3Button
-          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
-          data-sellpass-domain="lightningbot.sellpass.io"
-          // data-sellix-product="6527be362edd4"
+          onClick={openSellpass}
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >
@@ -102,9 +104,7 @@ export default function SelfbotHostingModal({ open, setOpen }) {
         />
 
         <Material3Button
-          data-sellpass-product-path="/products/LightningBot-Hosting-Key"
-          data-sellpass-domain="lightningbot.sellpass.io"
-          // data-sellix-product="6527be362edd4"
+          onClick={openSellpass}
           variant="contained"
           sx={{ margin: "auto", width: "80%" }}
         >

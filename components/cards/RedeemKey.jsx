@@ -26,6 +26,8 @@ import { api } from "../../api/api";
 import dashStyles from "../../styles/Dashboard.module.css";
 import loginStyles from "../../styles/Login.module.css";
 
+import { openSellpassEmbed } from "../../utils/sellpass";
+
 function RedeemKey(props) {
   const user = useUser();
 
@@ -215,6 +217,9 @@ function BuyKeyDialog(props) {
     enqueueSnackbar(error.toString(), { variant: "error" });
   };
 
+  const openSellpass = () =>
+    openSellpassEmbed("lightningbot.sellpass.io", "/LightningBot");
+
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
       <DialogTitle>Buy A Key</DialogTitle>
@@ -233,9 +238,7 @@ function BuyKeyDialog(props) {
         <Divider sx={{ backgroundColor: "#bbb", my: 1 }} />
 
         <Material3Button
-          // data-sellix-product="63cc61ba7c722"
-          data-sellpass-product-path="/products/LightningBot"
-          data-sellpass-domain="lightningbot.sellpass.io"
+          onClick={openSellpass}
           variant="contained"
         >
           Buy using Cryptocurrency

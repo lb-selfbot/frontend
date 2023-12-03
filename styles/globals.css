@@ -112,6 +112,7 @@ a {
   visibility: hidden;
 }
 
-#sellix-container {
+#sellix-container,
+.sellpass-modal {
   color-scheme: light;
 }
