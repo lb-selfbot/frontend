@@ -25,6 +25,7 @@ import UserSelection from "./config/UserSelection";
 import TextSelection from "./config/TextSelection";
 import CommandSelection from "./config/CommandSelection";
 import CategorySelection from "./config/CategorySelection";
+import TriggerList from "./config/TriggerList";
 
 import dashStyles from "../styles/Dashboard.module.css";
 import loginStyles from "../styles/Login.module.css";
@@ -250,6 +251,19 @@ function ConfigField(props) {
             get={field.get}
             set={field.set}
             selectedCategories={value}
+            onConfigUpdate={onConfigUpdate}
+          />
+        </ConfigFieldContainer>
+      );
+    case "trigger_list_dialog":
+      return (
+        <ConfigFieldContainer key={name}>
+          <TriggerList
+            name={name}
+            info={info}
+            triggerList={value}
+            get={field.get}
+            set={field.set}
             onConfigUpdate={onConfigUpdate}
           />
         </ConfigFieldContainer>

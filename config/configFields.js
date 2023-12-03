@@ -101,6 +101,36 @@ export const configFields = {
         return config;
       },
     },
+    {
+      name: "Client Spoof",
+      type: "dropdown",
+      info: "The client that the selfbot will show up as for Discord. A restart of the selfbot is required for any changes to take effect.",
+      get: (config) => config.Selfbot?.Client,
+      set: (config, value) => {
+        config.Selfbot.Client = value;
+        return config;
+      },
+      options: [
+        {
+          label: "Desktop",
+          value: "Desktop",
+          info: "The desktop client.",
+          icon: "code-braces",
+        },
+        {
+          label: "Web",
+          value: "Web",
+          info: "The web client.",
+          icon: "text",
+        },
+        {
+          label: "Mobile",
+          value: "Mobile",
+          info: "The mobile client.",
+          icon: "link",
+        },
+      ],
+    },
   ],
   notifications: [
     {
@@ -146,22 +176,32 @@ export const configFields = {
       },
     },
     {
-      name: "Custom Bots",
-      type: "user_selection_dialog",
-      info: "Custom bots for the giveaway sniper.\n\nThe bot will try to enter giveaways hosted using these bots.",
-      get: (config) => config.Snipers?.GiveawaySniper?.CustomBots,
-      set: (config, value) => {
-        config.Snipers.GiveawaySniper.CustomBots = value;
-        return config;
-      },
-    },
-    {
       name: "Blacklist",
       type: "text_selection_dialog",
       info: "The giveaway sniper will ignore a giveaway if any of the blacklist entries are found in the prize.",
       get: (config) => config.Snipers?.Blacklist,
       set: (config, value) => {
         config.Snipers.Blacklist = value;
+        return config;
+      },
+    },
+    {
+      name: "Server Blacklist",
+      type: "server_selection_dialog",
+      info: "The giveaway and nitro sniper will ignore the servers in this list. You can only enter the server ID.",
+      get: (config) => config.Snipers?.ServerBlacklist,
+      set: (config, value) => {
+        config.Snipers.ServerBlacklist = value;
+        return config;
+      },
+    },
+    {
+      name: "Custom Bots",
+      type: "user_selection_dialog",
+      info: "Custom bots for the giveaway sniper.\n\nThe bot will try to enter giveaways hosted using these bots.",
+      get: (config) => config.Snipers?.GiveawaySniper?.CustomBots,
+      set: (config, value) => {
+        config.Snipers.GiveawaySniper.CustomBots = value;
         return config;
       },
     },
@@ -182,6 +222,16 @@ export const configFields = {
       get: (config) => config.Snipers?.Tokens,
       set: (config, value) => {
         config.Snipers.Tokens = value;
+        return config;
+      },
+    },
+    {
+      name: "Privnote Sniper",
+      type: "switch",
+      info: "Enable or disable the privnote sniper.\n\nThe Privnote sniper will try to open every privnote message that is sent in servers so you can read the contents of the message.",
+      get: (config) => config.Snipers?.PrivnoteSniper,
+      set: (config, value) => {
+        config.Snipers.PrivnoteSniper = value;
         return config;
       },
     },
@@ -392,225 +442,231 @@ export const configFields = {
   ],
   activity: [
     {
-      name: 'Enabled',
-      type: 'switch',
+      name: "Enabled",
+      type: "switch",
       get: (config) => config.Activity?.Enabled,
       set: (config, value) => {
         config.Activity.Enabled = value;
         return config;
       },
-      info: 'Turn Discord activity on or off.',
+      info: "Turn Discord activity on or off.",
     },
     {
-      name: 'Activity Type',
-      type: 'dropdown',
+      name: "Activity Type",
+      type: "dropdown",
       get: (config) => config.Activity?.ActivityType,
       set: (config, value) => {
         config.Activity.ActivityType = value;
         return config;
       },
-      info:
-          'The type of activity the bot will display. The Discord client must be running to use RPC.',
+      info: "The type of activity the bot will display. The Discord client must be running to use RPC.",
       options: [
         {
-          label: 'RPC',
-          value: 'RPC',
-          info: 'Rich Presence',
-          icon: 'code-braces',
+          label: "RPC",
+          value: "RPC",
+          info: "Rich Presence",
+          icon: "code-braces",
         },
         {
-          label: 'Custom Activity',
-          value: 'CustomActivity',
-          info: 'Custom Activity',
-          icon: 'text',
+          label: "Custom Activity",
+          value: "CustomActivity",
+          info: "Custom Activity",
+          icon: "text",
         },
       ],
     },
-      {
-        name: 'Type',
-        type: 'dropdown',
-        get: (config) => config.Activity?.Type,
-        set: (config, value) => {
-          config.Activity.Type = value;
-          return config;
-        },
-        info: 'Playing, listening, watching, streaming or competing.',
-        options: [
-          {
-            label: 'Playing',
-            value: 'Playing',
-            info: 'Playing activity',
-            icon: 'code-braces',
-          },
-          {
-            label: 'Listening',
-            value: 'Listening',
-            info: 'Listening activity',
-            icon: 'code-braces',
-          },
-          {
-            label: 'Watching',
-            value: 'Watching',
-            info: 'Watching activity',
-            icon: 'code-braces',
-          },
-          {
-            label: 'Streaming',
-            value: 'Streaming',
-            info: 'Streaming activity',
-            icon: 'code-braces',
-          },
-          {
-            label: 'Competing',
-            value: 'Competing',
-            info: 'Competing activity',
-            icon: 'code-braces',
-          },
-        ],
-      },
-      {
-        name: 'Client ID',
-        type: 'text',
-        get: (config) => config.Activity?.ClientID,
-        set: (config, value) => {
-          config.Activity.ClientID = value;
-          return config;
-        },
-        info: 'The Discord client ID for the RPC application.',
-      },
-      {
-        name: 'Name',
-        type: 'text',
-        get: (config) => config.Activity?.Name,
-        set: (config, value) => {
-          config.Activity.Name = value;
-          return config;
-        },
-        info: 'The name of the activity.',
-      },
     {
-      name: 'State',
-      type: 'text',
+      name: "Type",
+      type: "dropdown",
+      get: (config) => config.Activity?.Type,
+      set: (config, value) => {
+        config.Activity.Type = value;
+        return config;
+      },
+      info: "Playing, listening, watching, streaming or competing.",
+      options: [
+        {
+          label: "Playing",
+          value: "Playing",
+          info: "Playing activity",
+          icon: "code-braces",
+        },
+        {
+          label: "Listening",
+          value: "Listening",
+          info: "Listening activity",
+          icon: "code-braces",
+        },
+        {
+          label: "Watching",
+          value: "Watching",
+          info: "Watching activity",
+          icon: "code-braces",
+        },
+        {
+          label: "Streaming",
+          value: "Streaming",
+          info: "Streaming activity",
+          icon: "code-braces",
+        },
+        {
+          label: "Competing",
+          value: "Competing",
+          info: "Competing activity",
+          icon: "code-braces",
+        },
+      ],
+    },
+    {
+      name: "Client ID",
+      type: "text",
+      get: (config) => config.Activity?.ClientID,
+      set: (config, value) => {
+        config.Activity.ClientID = value;
+        return config;
+      },
+      info: "The Discord client ID for the RPC application.",
+    },
+    {
+      name: "Name",
+      type: "text",
+      get: (config) => config.Activity?.Name,
+      set: (config, value) => {
+        config.Activity.Name = value;
+        return config;
+      },
+      info: "The name of the activity.",
+    },
+    {
+      name: "State",
+      type: "text",
       get: (config) => config.Activity?.State,
       set: (config, value) => {
         config.Activity.State = value;
         return config;
       },
-      info: 'The state text for the activity.',
+      info: "The state text for the activity.",
     },
     {
-      name: 'Details',
-      type: 'text',
+      name: "Details",
+      type: "text",
       get: (config) => config.Activity?.Details,
       set: (config, value) => {
         config.Activity.Details = value;
         return config;
       },
-      info: 'The details text for the activity.',
+      info: "The details text for the activity.",
     },
     {
-      name: 'Large Image',
-      type: 'text',
+      name: "Large Image",
+      type: "text",
       get: (config) => config.Activity?.LargeImage,
       set: (config, value) => {
         config.Activity.LargeImage = value;
         return config;
       },
-      info:
-          'The large image key for the activity.\n\nUse the [p]cacreateimageid command to create an image key.',
+      info: "The large image key for the activity.\n\nUse the [p]cacreateimageid command to create an image key.",
     },
     {
-      name: 'Large Image Text',
-      type: 'text',
+      name: "Large Image Text",
+      type: "text",
       get: (config) => config.Activity?.LargeImageText,
       set: (config, value) => {
         config.Activity.LargeImageText = value;
         return config;
       },
-      info: 'Tooltip text for the large image.',
+      info: "Tooltip text for the large image.",
     },
     {
-      name: 'Small Image',
-      type: 'text',
+      name: "Small Image",
+      type: "text",
       get: (config) => config.Activity?.SmallImage,
       set: (config, value) => {
         config.Activity.SmallImage = value;
         return config;
       },
-      info:
-          'The small image key for the activity.\n\nUse the [p]cacreateimageid command to create an image key.',
+      info: "The small image key for the activity.\n\nUse the [p]cacreateimageid command to create an image key.",
     },
     {
-      name: 'Small Image Text',
-      type: 'text',
+      name: "Small Image Text",
+      type: "text",
       get: (config) => config.Activity?.SmallImageText,
       set: (config, value) => {
         config.Activity.SmallImageText = value;
         return config;
       },
-      info: 'Tooltip text for the small image.',
+      info: "Tooltip text for the small image.",
     },
-      {
-        name: 'Invitable',
-        type: 'switch',
-        get: (config) => config.Activity?.Invitable,
-        set: (config, value) => {
-          config.Activity.Invitable = value;
-          return config;
-        },
-        info: 'If enabled, you can send fake game invites to other people.',
+    {
+      name: "Invitable",
+      type: "switch",
+      get: (config) => config.Activity?.Invitable,
+      set: (config, value) => {
+        config.Activity.Invitable = value;
+        return config;
       },
-      {
-        name: 'Time',
-        type: 'switch',
-        get: (config) => config.Activity?.Time,
-        set: (config, value) => {
-          config.Activity.Time = value;
-          return config;
-        },
-        info:
-            'If enabled, your Rich Presence will show how much time has elapsed.',
+      info: "If enabled, you can send fake game invites to other people.",
+    },
+    {
+      name: "Time",
+      type: "switch",
+      get: (config) => config.Activity?.Time,
+      set: (config, value) => {
+        config.Activity.Time = value;
+        return config;
       },
-      {
-        name: 'Button 1 Label',
-        type: 'text',
-        get: (config) => config.Activity?.Button1Label,
-        set: (config, value) => {
-          config.Activity.Button1Label = value;
-          return config;
-        },
-        info: 'The label for the first button.',
+      info: "If enabled, your Rich Presence will show how much time has elapsed.",
+    },
+    {
+      name: "Streaming URL",
+      type: "url",
+      info: "The URL for the streaming activity.",
+      get: (config) => config.Activity?.StreamingURL,
+      set: (config, value) => {
+        config.Activity.StreamingURL = value;
+        return config;
       },
-      {
-        name: 'Button 1 URL',
-        type: 'url',
-        get: (config) => config.Activity?.Button1URL,
-        set: (config, value) => {
-          config.Activity.Button1URL = value;
-          return config;
-        },
-        info: 'The URL for the first button.',
+    },
+    {
+      name: "Button 1 Label",
+      type: "text",
+      get: (config) => config.Activity?.Button1Label,
+      set: (config, value) => {
+        config.Activity.Button1Label = value;
+        return config;
       },
-      {
-        name: 'Button 2 Label',
-        type: 'text',
-        get: (config) => config.Activity?.Button2Label,
-        set: (config, value) => {
-          config.Activity.Button2Label = value;
-          return config;
-        },
-        info: 'The label for the second button.',
+      info: "The label for the first button.",
+    },
+    {
+      name: "Button 1 URL",
+      type: "url",
+      get: (config) => config.Activity?.Button1URL,
+      set: (config, value) => {
+        config.Activity.Button1URL = value;
+        return config;
       },
-      {
-        name: 'Button 2 URL',
-        type: 'url',
-        get: (config) => config.Activity?.Button2URL,
-        set: (config, value) => {
-          config.Activity.Button2URL = value;
-          return config;
-        },
-        info: 'The URL for the second button.',
+      info: "The URL for the first button.",
+    },
+    {
+      name: "Button 2 Label",
+      type: "text",
+      get: (config) => config.Activity?.Button2Label,
+      set: (config, value) => {
+        config.Activity.Button2Label = value;
+        return config;
       },
+      info: "The label for the second button.",
+    },
+    {
+      name: "Button 2 URL",
+      type: "url",
+      get: (config) => config.Activity?.Button2URL,
+      set: (config, value) => {
+        config.Activity.Button2URL = value;
+        return config;
+      },
+      info: "The URL for the second button.",
+    },
   ],
   ui: [
     {
@@ -642,6 +698,26 @@ export const configFields = {
       get: (config) => config.UI?.HideToSystemTray,
       set: (config, value) => {
         config.UI.HideToSystemTray = value;
+        return config;
+      },
+    },
+    {
+      name: "Run On Startup",
+      type: "switch",
+      info: "If enabled, the UI will run when you start your computer.",
+      get: (config) => config.UI?.RunOnStartup,
+      set: (config, value) => {
+        config.UI.RunOnStartup = value;
+        return config;
+      },
+    },
+    {
+      name: "Run Selfbot On Startup",
+      type: "switch",
+      info: "If enabled, the UI will automatically launch the selfbot when you start the UI.",
+      get: (config) => config.UI?.RunSelfbotOnStartup,
+      set: (config, value) => {
+        config.UI.RunSelfbotOnStartup = value;
         return config;
       },
     },
@@ -678,9 +754,9 @@ export const configFields = {
       },
     },
     {
-      info: "Protect your servers from malicious users.",
       name: "Server Protections",
       type: "server_protections_dialog",
+      info: "Protect your servers from malicious users.",
       get: (config) => config.Protections?.ServerProtections,
       set: (config, _value) => config,
     },
@@ -697,12 +773,57 @@ export const configFields = {
       },
     },
     {
+      name: "Trigger List",
+      type: "trigger_list_dialog",
+      info:
+        "The trigger list will be used to check if the AFK message should be sent. If any of the triggers are found, " +
+        "the AFK message will be sent. If the trigger list is empty, the AFK message will be sent for any DM or ping. " +
+        "You can choose between the types whitelist, blacklist, and global. In whitelist mode, you can select users or " +
+        "servers where the AFK message will be sent. In blacklist mode, you can select users or servers where the AFK " +
+        "message will not be sent. In global mode, the AFK message will be sent for any DM or ping.",
+      get: (config) => config.AFK?.TriggerList,
+      set: (config, value) => {
+        config.AFK.TriggerList = value;
+        return config;
+      },
+    },
+    {
+      name: "Random Delay",
+      type: "switch",
+      info: "If enabled, the delay before sending the AFK message will be random with the given delay as the maximum.",
+      get: (config) => config.AFK?.RandomDelay,
+      set: (config, value) => {
+        config.AFK.RandomDelay = value;
+        return config;
+      },
+    },
+    {
       name: "Delay",
       type: "number",
       info: "Delay before sending the AFK message.",
       get: (config) => config.AFK?.Delay,
       set: (config, value) => {
         config.AFK.Delay = value;
+        return config;
+      },
+    },
+    {
+      name: "Must Be Inactive",
+      type: "switch",
+      info: "If enabled, the AFK message will be only be sent if you haven't been active on Discord.",
+      get: (config) => config.AFK?.MustBeInactive,
+      set: (config, value) => {
+        config.AFK.MustBeInactive = value;
+        return config;
+      },
+    },
+    {
+      name: "Inactive Timeout",
+      type: "number",
+      info: "Delay before being considered inactive in seconds.",
+      get: (config) => config.AFK?.InactiveTimeout,
+      set: (config, value) => {
+        config.AFK.InactiveTimeout = value;
         return config;
       },
     },
@@ -727,7 +848,7 @@ export const configFields = {
       },
     },
     {
-      name: "Reply",
+      name: "Reply To Message",
       type: "switch",
       info: "If enabled, the AFK message will be sent in a reply to the message that triggered it.",
       get: (config) => config.AFK?.Reply,
@@ -737,32 +858,12 @@ export const configFields = {
       },
     },
     {
-      name: "Typing",
+      name: "Type Before Sending",
       type: "switch",
       info: "If enabled, Discord will display that you are typing for as long as the delay before sending the AFK message.",
       get: (config) => config.AFK?.Typing,
       set: (config, value) => {
         config.AFK.Typing = value;
-        return config;
-      },
-    },
-    {
-      name: "Ignored Users",
-      type: "user_selection_dialog",
-      info: "Messages from these users will be ignored.",
-      get: (config) => config.AFK?.IgnoredUsers,
-      set: (config, value) => {
-        config.AFK.IgnoredUsers = value;
-        return config;
-      },
-    },
-    {
-      name: "Ignored Servers",
-      type: "server_selection_dialog",
-      info: "Messages from these servers will be ignored.",
-      get: (config) => config.AFK?.IgnoredServers,
-      set: (config, value) => {
-        config.AFK.IgnoredServers = value;
         return config;
       },
     },
@@ -776,6 +877,16 @@ export const configFields = {
         return config;
       },
     },
+    {
+      name: "Use AI",
+      type: "switch",
+      info: "If enabled, the AFK message will be generated using AI. The message configuration will be used as an instruction for the AI model.",
+      get: (config) => config.AFK?.UseAI,
+      set: (config, value) => {
+        config.AFK.UseAI = value;
+        return config;
+      },
+    },
   ],
   sharing: [
     {
@@ -785,6 +896,16 @@ export const configFields = {
       get: (config) => config.Sharing?.ShareAll,
       set: (config, value) => {
         config.Sharing.ShareAll = value;
+        return config;
+      },
+    },
+    {
+      name: "Block Dangerous Commands",
+      type: "switch",
+      info: "Block users from being able to run dangerous commands like shutdownpc and hiddeneveryone.",
+      get: (config) => config.Sharing?.BlockDangerousCommands,
+      set: (config, value) => {
+        config.Sharing.BlockDangerousCommands = value;
         return config;
       },
     },
