@@ -85,6 +85,13 @@ const onlineUsersColumns = [
     width: 150,
   },
   {
+    field: "flags",
+    headerName: "Flags",
+    description: "User flags: staff, tester, etc.",
+    sortable: false,
+    width: 200,
+  },
+  {
     field: "loggedInAt",
     headerName: "Logged in at",
     width: 160,
