@@ -109,7 +109,7 @@ function MainApp({ Component, pageProps }) {
           name="description"
           content="Improve your Discord experience with LightningBot"
         />
-        <meta name="theme-color" content="#172d47" />
+        <meta name="theme-color" content="#49AAFE" />
         <meta property="og:image" content="/social-card.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
