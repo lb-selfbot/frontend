@@ -26,7 +26,7 @@ import { api } from "../../api/api";
 import dashStyles from "../../styles/Dashboard.module.css";
 import loginStyles from "../../styles/Login.module.css";
 
-import { openSellpassEmbed } from "../../utils/sellpass";
+import openSellpassEmbed from "../../utils/sellpass";
 
 function RedeemKey(props) {
   const user = useUser();
@@ -237,10 +237,7 @@ function BuyKeyDialog(props) {
 
         <Divider sx={{ backgroundColor: "#bbb", my: 1 }} />
 
-        <Material3Button
-          onClick={openSellpass}
-          variant="contained"
-        >
+        <Material3Button onClick={openSellpass} variant="contained">
           Buy using Cryptocurrency
         </Material3Button>
 

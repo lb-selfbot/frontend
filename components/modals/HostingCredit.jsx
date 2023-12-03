@@ -21,7 +21,7 @@ import { useSnackbar } from "notistack";
 
 import { api } from "../../api/api";
 
-import { openSellpassEmbed } from "../../utils/sellpass";
+import openSellpassEmbed from "../../utils/sellpass";
 
 export default function SelfbotHostingModal({ open, setOpen }) {
   const [key, setKey] = React.useState("");
@@ -54,10 +54,7 @@ export default function SelfbotHostingModal({ open, setOpen }) {
   };
 
   const openSellpass = () =>
-    openSellpassEmbed(
-      "lightningbot.sellpass.io",
-      "/LightningBot-Hosting-Key"
-    );
+    openSellpassEmbed("lightningbot.sellpass.io", "/LightningBot-Hosting-Key");
 
   return (
     <Dialog open={open} onClose={closeDialog} fullWidth>

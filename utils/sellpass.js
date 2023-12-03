@@ -78,7 +78,7 @@ const sellpassCss =
   "    }\n" +
   "}\n";
 
-if (typeof window !== "undefined") {
+export default function openSellpassEmbed(domain, path) {
   const modal = document.createElement("div");
   const backdrop = document.createElement("div");
   const spinner = document.createElement("div");
@@ -103,9 +103,7 @@ if (typeof window !== "undefined") {
       iframeWrapper.classList.remove("show");
     }
   });
-}
 
-export function openSellpassEmbed(domain, path) {
   iframe.setAttribute("src", `https://${domain}/embed/products/${path}`);
   iframeWrapper.appendChild(iframe);
   modal.appendChild(spinner);
