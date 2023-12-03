@@ -4,7 +4,7 @@ export const resellers = [
     url: "https://hbh.lol/",
   },
   {
-    name: "Cheddlatron",
+    name: "Cheddshop",
     url: "https://cheddshop.sellpass.io/products/Lightning-Selfbot",
   }
 ];
