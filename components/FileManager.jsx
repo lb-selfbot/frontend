@@ -144,13 +144,22 @@ function FileList({ files, folders, currentPath, setCurrentPath, reload }) {
             setCurrentPath((currentPath + "/" + folder).replace("//", "/"))
           }
           menu={[
-            <Typography variant="body" display="inline-block" mx={2} my={1}>
+            <Typography
+              key={folder + "_typography"}
+              variant="body"
+              display="inline-block"
+              mx={2}
+              my={1}
+            >
               Folder: {folder}
             </Typography>,
 
-            <Divider />,
+            <Divider key={folder + "_divider"} />,
 
-            <MenuItem onClick={() => handleFolderDelete(folder)}>
+            <MenuItem
+              key={folder + "_delete"}
+              onClick={() => handleFolderDelete(folder)}
+            >
               Delete
             </MenuItem>,
           ]}
@@ -168,16 +177,30 @@ function FileList({ files, folders, currentPath, setCurrentPath, reload }) {
           key={file}
           onClick={() => handleFileDownload(file)}
           menu={[
-            <Typography variant="body" display="inline-block" mx={2} my={1}>
+            <Typography
+              key={file + "_typography"}
+              variant="body"
+              display="inline-block"
+              mx={2}
+              my={1}
+            >
               File: {file}
             </Typography>,
 
-            <Divider />,
+            <Divider key={file + "_divider"} />,
 
-            <MenuItem onClick={() => handleFileDownload(file)}>
+            <MenuItem
+              key={file + "_download"}
+              onClick={() => handleFileDownload(file)}
+            >
               Download
             </MenuItem>,
-            <MenuItem onClick={() => handleFileDelete(file)}>Delete</MenuItem>,
+            <MenuItem
+              key={file + "_delete"}
+              onClick={() => handleFileDelete(file)}
+            >
+              Delete
+            </MenuItem>,
           ]}
         >
           <ListItemAvatar>
@@ -201,7 +224,7 @@ function FileManager() {
     }
 
     return content[currentPath];
-  });
+  }, [content, currentPath]);
 
   const splitPath = currentPath.split("/");
   const files = currentContent["files"];
