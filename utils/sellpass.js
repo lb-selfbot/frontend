@@ -78,30 +78,32 @@ const sellpassCss =
   "    }\n" +
   "}\n";
 
-const modal = document.createElement("div");
-const backdrop = document.createElement("div");
-const spinner = document.createElement("div");
-const styleNode = document.createElement("style");
-const iframe = document.createElement("iframe");
-const iframeWrapper = document.createElement("div");
-styleNode.innerText = sellpassCss;
-modal.classList.add("sellpass-modal");
-iframeWrapper.classList.add("sellpass-iframe-wrapper");
-iframe.classList.add("sellpass-iframe");
-backdrop.classList.add("sellpass-iframe-backdrop");
-spinner.classList.add("sellpass-spinner");
-spinner.innerHTML = "<div></div><div></div><div></div><div></div>";
+if (typeof window !== "undefined") {
+  const modal = document.createElement("div");
+  const backdrop = document.createElement("div");
+  const spinner = document.createElement("div");
+  const styleNode = document.createElement("style");
+  const iframe = document.createElement("iframe");
+  const iframeWrapper = document.createElement("div");
+  styleNode.innerText = sellpassCss;
+  modal.classList.add("sellpass-modal");
+  iframeWrapper.classList.add("sellpass-iframe-wrapper");
+  iframe.classList.add("sellpass-iframe");
+  backdrop.classList.add("sellpass-iframe-backdrop");
+  spinner.classList.add("sellpass-spinner");
+  spinner.innerHTML = "<div></div><div></div><div></div><div></div>";
 
-modal.appendChild(backdrop);
-modal.appendChild(iframeWrapper);
-modal.appendChild(styleNode);
+  modal.appendChild(backdrop);
+  modal.appendChild(iframeWrapper);
+  modal.appendChild(styleNode);
 
-window.addEventListener("message", (event) => {
-  if (event.data === "close-embed") {
-    document.body.removeChild(modal);
-    iframeWrapper.classList.remove("show");
-  }
-});
+  window.addEventListener("message", (event) => {
+    if (event.data === "close-embed") {
+      document.body.removeChild(modal);
+      iframeWrapper.classList.remove("show");
+    }
+  });
+}
 
 export function openSellpassEmbed(domain, path) {
   iframe.setAttribute("src", `https://${domain}/embed/products/${path}`);
