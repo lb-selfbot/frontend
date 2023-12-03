@@ -105,8 +105,16 @@ function MainApp({ Component, pageProps }) {
 
         <link rel="manifest" href="/manifest.json" />
 
-        <meta name="description" content="A Discord Selfbot" />
+        <meta
+          name="description"
+          content="Improve your Discord experience with LightningBot"
+        />
         <meta name="theme-color" content="#172d47" />
+        <meta property="og:image" content="/social-card.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="675" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Providers theme={theme}>
         <App Component={Component} pageProps={pageProps} />
