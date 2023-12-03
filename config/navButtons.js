@@ -1,5 +1,6 @@
 import HomeIcon from "@mui/icons-material/Home";
 import QuizIcon from "@mui/icons-material/Quiz";
+import DescriptionIcon from "@mui/icons-material/Description";
 import { DiscordIcon } from "../components/icons/Discord.jsx";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -20,6 +21,11 @@ function getNavButtons(user) {
   const navButtons = [
     { text: "Home", to: "/", icon: (props) => <HomeIcon {...props} /> },
     { text: "FAQ", to: "/faq", icon: (props) => <QuizIcon {...props} /> },
+    {
+      text: "Docs",
+      to: "/docs",
+      icon: (props) => <DescriptionIcon {...props} />,
+    },
     {
       text: "Discord",
       to: "/discord",
@@ -61,6 +67,11 @@ function getDashboardNavButtons(user) {
     General: [
       { text: "Home", to: "/", icon: (props) => <HomeIcon {...props} /> },
       { text: "FAQ", to: "/faq", icon: (props) => <QuizIcon {...props} /> },
+      {
+        text: "Docs",
+        to: "/docs",
+        icon: (props) => <DescriptionIcon {...props} />,
+      },
       {
         text: "Discord",
         to: "/discord",

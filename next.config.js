@@ -37,6 +37,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/docs",
+        destination: "https://docs.lightning-bot.com",
+        permanent: false,
+      },
+      {
         source: "/dashboard/selfbot",
         destination: "/dashboard/selfbot/console",
         permanent: true,
