@@ -24,7 +24,6 @@ class WebsocketData {
   }
 
   setConfig(value) {
-    console.log("SETTING CFG TO", value);
     this.config = value;
     this.onChange();
   }

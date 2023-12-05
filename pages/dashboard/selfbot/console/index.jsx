@@ -51,10 +51,6 @@ function SelfbotConsole(props) {
 
   const consoleHTML = React.useMemo(() => getConsoleHTML(console), [console]);
 
-  if (typeof window !== "undefined") {
-    window.console.log(console, consoleHTML);
-  }
-
   const onExitClick = () => sendJsonMessage({ op: "EXIT" });
   const onRestartClick = () => sendJsonMessage({ op: "RESTART" });
 

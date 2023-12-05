@@ -32,8 +32,6 @@ function TriggerListModal({ name, get, set, onConfigUpdate }) {
     get(wsData.config)?.Type ?? ""
   );
 
-  console.log(wsData.config, triggerList);
-
   const closeDialog = () => setDialogOpen(false);
 
   const userText =
