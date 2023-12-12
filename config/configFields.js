@@ -38,6 +38,12 @@ export const configFields = {
           info: "The bot will respond to commands with indented text.",
           icon: "link",
         },
+        {
+          label: "Webhook Embed",
+          value: "WebhookEmbed",
+          info: "The bot will respond to commands with a webhook embed if possible.",
+          icon: "link",
+        },
       ],
     },
     {
