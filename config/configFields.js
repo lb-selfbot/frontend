@@ -247,6 +247,16 @@ export const configFields = {
         return config;
       },
     },
+    {
+      name: "PokéTwo Sniper",
+      type: "poketwo_sniper_dialog",
+      info: "Enable or disable the PokéTwo sniper.\n\nThe PokéTwo sniper will try to catch Pokémon using AI detection that spawns in the channels you specify.",
+      get: (config) => config.Snipers?.PokeTwoSniper,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper = value;
+        return config;
+      },
+    },
   ],
   webhooks: [
     {
@@ -990,6 +1000,88 @@ export const configFields = {
       get: (config) => config.Protections?.ServerProtections?.AntiUpper,
       set: (config, value) => {
         config.Protections.ServerProtections.AntiUpper = value;
+        return config;
+      },
+    },
+  ],
+  poketwoSniper: [
+    {
+      name: "Enabled",
+      type: "switch",
+      info: "Turn the PokéTwo sniper on or off.",
+      get: (config) => config.Snipers?.PokeTwoSniper?.Enabled,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.Enabled = value;
+        return config;
+      },
+    },
+    {
+      name: "Timeout",
+      type: "number",
+      info: "The amount of time to wait between catching Pokémon. (in seconds)",
+      get: (config) => config.Snipers?.PokeTwoSniper?.Timeout,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.Timeout = value;
+        return config;
+      },
+    },
+    {
+      name: "Sleep",
+      type: "number",
+      info: "How long the sniper should wait before catching a Pokémon. (in seconds)",
+      get: (config) => config.Snipers?.PokeTwoSniper?.Sleep,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.Sleep = value;
+        return config;
+      },
+    },
+    {
+      name: "Random Sleep",
+      type: "switch",
+      info: "If enabled, the time before catching a Pokémon will be randomized with the maximum sleep time being the value of the sleep field.",
+      get: (config) => config.Snipers?.PokeTwoSniper?.RandomSleep,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.RandomSleep = value;
+        return config;
+      },
+    },
+    {
+      name: "Typing",
+      type: "switch",
+      info: "If enabled, the you will be shown as typing before catching a Pokémon.",
+      get: (config) => config.Snipers?.PokeTwoSniper?.Typing,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.Typing = value;
+        return config;
+      },
+    },
+    {
+      name: "Fake Activity",
+      type: "switch",
+      info: "If enabled, the sniper will occasionally send random PokéTwo commands in the catching channels.",
+      get: (config) => config.Snipers?.PokeTwoSniper?.FakeActivity,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.FakeActivity = value;
+        return config;
+      },
+    },
+    {
+      name: "Catch Rate",
+      type: "number",
+      info: "Percentage of Pokémon to catch. (0-100)\n\nIf set to 100, the sniper will try to catch all Pokémon that spawn in the channels you specify.",
+      get: (config) => config.Snipers?.PokeTwoSniper?.CatchRate,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.CatchRate = value;
+        return config;
+      },
+    },
+    {
+      name: "Channels",
+      type: "channel_selection_dialog",
+      info: "Channels to catch Pokémon in.",
+      get: (config) => config.Snipers?.PokeTwoSniper?.Channels,
+      set: (config, value) => {
+        config.Snipers.PokeTwoSniper.Channels = value;
         return config;
       },
     },

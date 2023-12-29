@@ -25,7 +25,9 @@ import UserSelection from "./config/UserSelection";
 import TextSelection from "./config/TextSelection";
 import CommandSelection from "./config/CommandSelection";
 import CategorySelection from "./config/CategorySelection";
+import ChannelSelection from "./config/ChannelSelection";
 import TriggerList from "./config/TriggerList";
+import PokeTwoSniper from "./config/PokeTwoSniper";
 
 import dashStyles from "../styles/Dashboard.module.css";
 import loginStyles from "../styles/Login.module.css";
@@ -255,6 +257,23 @@ function ConfigField(props) {
           />
         </ConfigFieldContainer>
       );
+    case "channel_selection_dialog":
+      if (value === null) {
+        wsData.setConfig(set(wsData.config, []));
+        setValue([]);
+      }
+      return (
+        <ConfigFieldContainer key={name}>
+          <ChannelSelection
+            name={name}
+            info={info}
+            get={field.get}
+            set={field.set}
+            selectedChannels={value}
+            onConfigUpdate={onConfigUpdate}
+          />
+        </ConfigFieldContainer>
+      );
     case "trigger_list_dialog":
       return (
         <ConfigFieldContainer key={name}>
@@ -262,6 +281,19 @@ function ConfigField(props) {
             name={name}
             info={info}
             triggerList={value}
+            get={field.get}
+            set={field.set}
+            onConfigUpdate={onConfigUpdate}
+          />
+        </ConfigFieldContainer>
+      );
+    case "poketwo_sniper_dialog":
+      return (
+        <ConfigFieldContainer key={name}>
+          <PokeTwoSniper
+            name={name}
+            info={info}
+            poketwoSniper={value}
             get={field.get}
             set={field.set}
             onConfigUpdate={onConfigUpdate}
@@ -294,7 +326,7 @@ function ConfigEditor({ fields }) {
   };
 
   return (
-    <Grid container spacing={4} rowSpacing={1} justifyContent="center">
+    <Grid container spacing={2} rowSpacing={1} justifyContent="center">
       {fields.map((field, index) => (
         <ConfigField
           field={field}
