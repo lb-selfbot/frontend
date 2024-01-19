@@ -100,6 +100,12 @@ function SelfbotHosting(props) {
   };
 
   const onGetMoreCredits = () => {
+    if (user.key === "None") {
+      enqueueSnackbar("You must have a license key to use hosting.", {
+        variant: "error",
+      });
+      return;
+    }
     setCreditModalOpen(true);
   };
 
