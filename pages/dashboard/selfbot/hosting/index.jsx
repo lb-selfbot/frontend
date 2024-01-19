@@ -81,6 +81,13 @@ function SelfbotHosting(props) {
     if (!user.ready) {
       return;
     }
+    
+    if (user.key === "None") {
+      enqueueSnackbar("You must have a license key to use hosting.", {
+        variant: "error",
+      });
+      return;
+    }
 
     if (hostingEnabled) {
       api.DisableHosting().then((res) => {
@@ -106,6 +113,7 @@ function SelfbotHosting(props) {
       });
       return;
     }
+
     setCreditModalOpen(true);
   };
 
