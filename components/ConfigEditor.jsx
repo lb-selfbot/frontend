@@ -259,7 +259,6 @@ function ConfigField(props) {
       );
     case "channel_selection_dialog":
       if (value === null) {
-        wsData.setConfig(set(wsData.config, []));
         setValue([]);
       }
       return (
