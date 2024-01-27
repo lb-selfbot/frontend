@@ -11,7 +11,7 @@ import { SelfbotConnectedModal } from "./modals/SelfbotConnected";
 import { LeftNavItem } from "./NavItem";
 import { Subheader } from "./Subheader";
 
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import useWebSocket from "react-use-websocket";
@@ -27,7 +27,7 @@ import styles from "../styles/Dashboard.module.css";
 
 const drawerWidth = 270;
 
-function onWebsocketMessage(rawMessage, enqueueSnackbar, showModal) {
+function onWebsocketMessage(rawMessage, enqueueSnackbar, showModal, router) {
   const message = JSON.parse(rawMessage.data);
   const data = message.data;
 
@@ -36,10 +36,16 @@ function onWebsocketMessage(rawMessage, enqueueSnackbar, showModal) {
   switch (message.op) {
     case "SELFBOT_CONNECT":
       wsData.setSelfbotConnected(true);
+      
+      if (window.localStorage.getItem("selfbotConnected") !== "true") {
+        window.localStorage.setItem("selfbotConnected", "true");
 
-      showModal(SelfbotConnectedModal, {
-        computerName: data.computer_name,
-      });
+        showModal(SelfbotConnectedModal, {
+          computerName: data.computer_name,
+        });
+      } else {
+        enqueueSnackbar("Selfbot connected", { variant: "success" });
+      }
 
       if (data.console_text !== "") {
         wsData.setConsole(data.console_text);
@@ -98,6 +104,7 @@ function getSubheaderDisplay(user, subHeader) {
 function MainDashboard(props) {
   const [mobileDrawerOpen, setMobileDrawerOpen] = React.useState(false);
   const { showModal } = useModal();
+  const router = useRouter();
   const isScrolled = useScrollTrigger({
     disableHysteresis: true,
     threshold: 10,
@@ -111,7 +118,8 @@ function MainDashboard(props) {
     () => ({
       onOpen: () => console.log("Connected to websocket"),
       onClose: (e) => onWebsocketClose(e, enqueueSnackbar),
-      onMessage: (e) => onWebsocketMessage(e, enqueueSnackbar, showModal),
+      onMessage: (e) =>
+        onWebsocketMessage(e, enqueueSnackbar, showModal, router),
       retryOnError: true,
       reconnectInterval: 1000,
       share: true,
