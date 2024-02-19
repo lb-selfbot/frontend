@@ -766,12 +766,12 @@ export const configFields = {
       },
     },
     {
-      name: "Anti Phising",
+      name: "Anti Phishing",
       type: "switch",
-      info: "If enabled, the bot will warn you against phising links.",
-      get: (config) => config.Protections?.AntiPhising,
+      info: "If enabled, the bot will warn you against phishing links.",
+      get: (config) => config.Protections?.AntiPhishing,
       set: (config, value) => {
-        config.Protections.AntiPhising = value;
+        config.Protections.AntiPhishing = value;
         return config;
       },
     },
