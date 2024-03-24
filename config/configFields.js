@@ -339,6 +339,26 @@ export const configFields = {
       },
       info: "The webhook URL to send sessions notifications to. Leave blank to disable.\n\nYou can create a webhook by going to Channel Settings > Integrations > Webhooks > Create Webhook.",
     },
+    {
+      name: "Ping Self",
+      type: "switch",
+      info: "If enabled, you will be pinged when a webhook notification is sent.",
+      get: (config) => config.Webhooks?.PingSelf,
+      set: (config, value) => {
+        config.Webhooks.PingSelf = value;
+        return config;
+      },
+    },
+    {
+      name: "Ping Everyone",
+      type: "switch",
+      info: "If enabled, @everyone will be pinged when a webhook notification is sent.",
+      get: (config) => config.Webhooks?.PingEveryone,
+      set: (config, value) => {
+        config.Webhooks.PingEveryone = value;
+        return config;
+      },
+    },
   ],
   events: [
     {
