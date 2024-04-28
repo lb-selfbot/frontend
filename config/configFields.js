@@ -143,6 +143,16 @@ export const configFields = {
         },
       ],
     },
+    {
+      name: "Timezone",
+      type: "text",
+      info: "The timezone that the selfbot will use for console logs, custom activity, and other time-related features.\nThis should be a valid timezone name, such as 'America/New_York'.",
+      get: (config) => config.Selfbot?.Timezone,
+      set: (config, value) => {
+        config.Selfbot.Timezone = value;
+        return config;
+      },
+    },
   ],
   notifications: [
     {
