@@ -11,8 +11,6 @@ import Divider from "@mui/material/Divider";
 import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
 
-import { PayPalButtons } from "@paypal/react-paypal-js";
-
 import { Material3Button } from "../Material3Button";
 import { Card } from "../Card";
 
@@ -228,17 +226,10 @@ function BuyKeyDialog(props) {
           Choose any of the options below to buy LightningBot.
         </DialogContentText>
 
-        <PayPalButtons
-          createOrder={createOrder}
-          onApprove={onPaymentApprove}
-          onCancel={onPaymentCancel}
-          onError={onPaymentError}
-        />
-
         <Divider sx={{ backgroundColor: "#bbb", my: 1 }} />
 
         <Material3Button onClick={openSellpass} variant="contained">
-          Buy using Cryptocurrency
+          Click to buy using PayPal or Cryptocurrencies
         </Material3Button>
 
         {resellers.length > 0 && <Resellers />}
