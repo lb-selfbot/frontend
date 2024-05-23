@@ -17,8 +17,8 @@ const RECAPTCHA_SITEKEY = "6LeD4LkgAAAAAChLtd2kTZX4ujHPfjGPsZ6p3w1D";
 
 // PayPal config
 const PAYPAL_CLIENT_ID = DEBUG
-  ? "AYGCBr3jhWL6kVWvnlFR8F5NjNI6peg_-XrcBSQbr0iIqcZrVqX4vzTbYRcIXF8MTh5Gri9vmQCuRiRQ"
-  : "Aa0ZGMuXasC7YSmE5CbfNvGzDqP9bisjK_i4iBwc9a-p7qSVWZCWkNM39G7tzGhTzjuv5sr1PAnBFGf-";
+  ? "AWahhoCNsL3kXNJgAq9oNZMfcQlv5Rs9yQzs3rHemC_qcQG-5Tl9MgncAVzNMIQmaN6cP6_aSUYJVFP-"
+  : "AbhK4g1-Ci0ECTDhaGQrDIrx-Qbve80lLD_0ozeNVIg1pTWlD-6HD0aw75T8zs-C25kCG-RvbiDA5r2j";
 
 export {
   API_URL,
