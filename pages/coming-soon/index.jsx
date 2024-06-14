@@ -13,6 +13,14 @@ import pageStyles from "../../styles/Page.module.css";
 import styles from "../../styles/NotFound.module.css";
 
 export default function ComingSoon(props) {
+  if (!COMING_SOON) {
+    if (window !== undefined) {
+      window.location.href = "/";
+    }
+
+    return null;
+  }
+
   return (
     <Box className={pageStyles.pageContainer}>
       <Box className={pageStyles.pageContent}>
@@ -35,17 +43,4 @@ export default function ComingSoon(props) {
       </Box>
     </Box>
   );
-}
-
-export async function getServerSideProps(context) {
-  if (!COMING_SOON) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
-  return { props: {} };
 }

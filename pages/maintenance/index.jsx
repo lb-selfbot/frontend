@@ -12,6 +12,14 @@ import pageStyles from "../../styles/Page.module.css";
 import styles from "../../styles/NotFound.module.css";
 
 export default function Maintenance(props) {
+  if (!MAINTENANCE) {
+    if (window !== undefined) {
+      window.location.href = "/";
+    }
+
+    return null;
+  }
+
   return (
     <Box className={pageStyles.pageContainer}>
       <Box className={pageStyles.pageContent}>
@@ -32,17 +40,4 @@ export default function Maintenance(props) {
       </Box>
     </Box>
   );
-}
-
-export async function getServerSideProps(context) {
-  if (!MAINTENANCE) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
-  return { props: {} };
 }
