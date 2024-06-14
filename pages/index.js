@@ -69,33 +69,33 @@ export default function Home() {
         <Feature
           title="Customizable"
           text="LightningBot was made with customizability in mind. You can modify a lot of settings via the UI or directly in Discord using the config commands."
-          icon={typeof Settings === "function" && <Settings />}
+          icon={<Settings />}
         />
         <Feature
           title="Snipers"
           text="LightningBot can automatically join giveaways and try to redeem Discord Nitro codes on multiple accounts at once."
-          icon={typeof Celebration === "function" && <Celebration />}
+          icon={<Celebration />}
         />
         <Feature
           title="Multi-Platform"
           text="LightningBot is one of the only multi-platform selfbots. It's available on Windows, MacOS and Linux."
-          icon={typeof DesktopWindows === "function" && <DesktopWindows />}
+          icon={<DesktopWindows />}
         />
 
         <Feature
           title="Spotify Integration"
           text="LightningBot was the first selfbot to introduce Spotify integration. With LightningBot, you can control your Spotify music easily within Discord."
-          icon={typeof MusicNote === "function" && <MusicNote />}
+          icon={<MusicNote />}
         />
         <Feature
           title="Modern Technologies"
           text="LightningBot uses the most modern technologies available. We use Golang, Flutter, Django and Next.js to give you the best experience possible."
-          icon={typeof Code === "function" && <Code />}
+          icon={<Code />}
         />
         <Feature
           title="7-day Free Trial"
           text="You can use LightningBot for free for 7 days to test out its features before buying it."
-          icon={typeof AccessTime === "function" && <AccessTime />}
+          icon={<AccessTime />}
         />
       </Feature.Container>
 

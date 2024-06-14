@@ -75,9 +75,7 @@ function ChannelSelectionModal({ name, get, set, onConfigUpdate }) {
 
   const inputAdornment = (
     <InputAdornment position="end">
-      <IconButton onClick={onChannelAdd}>
-        {typeof AddIcon === "function" && <AddIcon />}
-      </IconButton>
+      <IconButton onClick={onChannelAdd}>{<AddIcon />}</IconButton>
     </InputAdornment>
   );
 

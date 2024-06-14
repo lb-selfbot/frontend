@@ -129,7 +129,7 @@ function SelfbotHosting(props) {
         <Card
           title="Status"
           content={hostingEnabled ? "Enabled" : "Disabled"}
-          icon={typeof DeveloperBoard === "function" && <DeveloperBoard />}
+          icon={<DeveloperBoard />}
         >
           <Box style={{ marginLeft: 10, display: "inline" }}>
             <Button variant="outlined" size="small" onClick={onHostingToggle}>
@@ -137,11 +137,7 @@ function SelfbotHosting(props) {
             </Button>
           </Box>
         </Card>
-        <Card
-          title="Credit"
-          content={parsedHostingTime}
-          icon={typeof Memory === "function" && <Memory />}
-        >
+        <Card title="Credit" content={parsedHostingTime} icon={<Memory />}>
           <Box style={{ marginLeft: 10, display: "inline" }}>
             <Button variant="outlined" size="small" onClick={onGetMoreCredits}>
               Get More
@@ -151,12 +147,12 @@ function SelfbotHosting(props) {
         <Card
           title="Hosting Server Status"
           content={stats.hosting_status ?? "Loading"}
-          icon={typeof ManageHistory === "function" && <ManageHistory />}
+          icon={<ManageHistory />}
         />
         <Card
           title="Hosted Bots"
           content={stats.hosting ?? "Loading"}
-          icon={typeof AccessTime === "function" && <AccessTime />}
+          icon={<AccessTime />}
         />
         <Grid item xs={12}>
           <Typography variant="h4" className={titleClasses}>

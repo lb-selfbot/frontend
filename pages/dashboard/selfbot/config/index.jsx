@@ -5,7 +5,7 @@ import Tabs from "@mui/material/Tabs/Tabs";
 import Tab from "@mui/material/Tab/Tab";
 import Box from "@mui/material/Box/Box";
 
-import SwipeableViews from "react-swipeable-views-v18";
+import SwipeableViews from "react-swipeable-views-react-18-fix";
 
 import { MainDashboard } from "../../../../components/MainDashboard";
 import { ConfigEditor } from "../../../../components/ConfigEditor";

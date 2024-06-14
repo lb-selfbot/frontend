@@ -11,9 +11,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import styles from "../styles/FAQ.module.css";
 
 function FAQAnswer(props) {
-  const expandIcon = typeof ExpandMore === "function" && (
-    <ExpandMore htmlColor="rgb(238, 238, 239)" />
-  );
+  const expandIcon = <ExpandMore htmlColor="rgb(238, 238, 239)" />;
   const { question, answer } = props;
 
   return (

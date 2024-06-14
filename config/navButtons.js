@@ -22,26 +22,22 @@ function getNavButtons(user) {
     {
       text: "Home",
       to: "/",
-      icon: (props) =>
-        typeof HomeIcon === "function" && <HomeIcon {...props} />,
+      icon: (props) => <HomeIcon {...props} />,
     },
     {
       text: "FAQ",
       to: "/faq",
-      icon: (props) =>
-        typeof QuizIcon === "function" && <QuizIcon {...props} />,
+      icon: (props) => <QuizIcon {...props} />,
     },
     {
       text: "Docs",
       to: "/docs",
-      icon: (props) =>
-        typeof DescriptionIcon === "function" && <DescriptionIcon {...props} />,
+      icon: (props) => <DescriptionIcon {...props} />,
     },
     {
       text: "Discord",
       to: "/discord",
-      icon: (props) =>
-        typeof DiscordIcon === "function" && <DiscordIcon {...props} />,
+      icon: (props) => <DiscordIcon {...props} />,
     },
   ];
 
@@ -49,27 +45,23 @@ function getNavButtons(user) {
     navButtons.push({
       text: "Dashboard",
       to: "/dashboard",
-      icon: (props) =>
-        typeof DashboardIcon === "function" && <DashboardIcon {...props} />,
+      icon: (props) => <DashboardIcon {...props} />,
     });
     navButtons.push({
       text: "Logout",
       to: "/logout",
-      icon: (props) =>
-        typeof LogoutIcon === "function" && <LogoutIcon {...props} />,
+      icon: (props) => <LogoutIcon {...props} />,
     });
   } else {
     navButtons.push({
       text: "Login",
       to: "/login",
-      icon: (props) =>
-        typeof Loginicon === "function" && <LoginIcon {...props} />,
+      icon: (props) => <LoginIcon {...props} />,
     });
     navButtons.push({
       text: "Sign Up",
       to: "/signup",
-      icon: (props) =>
-        typeof SignUpIcon === "function" && <SignUpIcon {...props} />,
+      icon: (props) => <SignUpIcon {...props} />,
     });
   }
 
@@ -81,71 +73,80 @@ function getDashboardNavButtons(user) {
 
   const navButtons = {
     General: [
-      { text: "Home", to: "/", icon: (props) => typeof HomeIcon === "function" &&<HomeIcon {...props} /> },
-      { text: "FAQ", to: "/faq", icon: (props) => typeof QuizIcon === "function" &&<QuizIcon {...props} /> },
+      {
+        text: "Home",
+        to: "/",
+        icon: (props) => <HomeIcon {...props} />,
+      },
+      {
+        text: "FAQ",
+        to: "/faq",
+        icon: (props) => <QuizIcon {...props} />,
+      },
       {
         text: "Docs",
         to: "/docs",
-        icon: (props) => typeof DescriptionIcon === "function" &&<DescriptionIcon {...props} />,
+        icon: (props) => <DescriptionIcon {...props} />,
       },
       {
         text: "Discord",
         to: "/discord",
-        icon: (props) => typeof DiscordIcon === "function" &&<DiscordIcon {...props} />,
+        icon: (props) => <DiscordIcon {...props} />,
       },
       {
         text: "Dashboard",
         to: "/dashboard",
-        icon: (props) => typeof GridViewicon === "function" &&<GridViewIcon {...props} />,
+        icon: (props) => <GridViewIcon {...props} />,
       },
       {
         text: "Logout",
         to: "/logout",
-        icon: (props) => typeof LogoutIcon === "function" &&<LogoutIcon {...props} />,
+        icon: (props) => <LogoutIcon {...props} />,
       },
     ],
     Dashboard: [
       {
         text: "Overview",
         to: "/dashboard",
-        icon: (props) => typeof GridViewIcon === "function" &&<GridViewIcon {...props} />,
+        icon: (props) => <GridViewIcon {...props} />,
       },
     ],
     Selfbot: [
       {
         text: "Console",
         to: "/dashboard/selfbot/console",
-        icon: (props) => typeof ConsoleIcon === "function" &&<ConsoleIcon {...props} />,
+        icon: (props) => <ConsoleIcon {...props} />,
       },
       {
         text: "Config",
         to: "/dashboard/selfbot/config",
-        icon: (props) => typeof ConfigIcon === "function" &&<ConfigIcon {...props} />,
+        icon: (props) => <ConfigIcon {...props} />,
       },
       {
         text: "Hosting",
         to: "/dashboard/selfbot/hosting",
-        icon: (props) => typeof StorageIcon === "function" &&<StorageIcon {...props} />,
+        icon: (props) => <StorageIcon {...props} />,
       },
     ],
   };
 
   if (user.ready && user.isStaff) {
+    console.log(DataThresholdingIcon);
     navButtons.Admin = [
       {
         text: "Overview",
         to: "/dashboard/admin",
-        icon: (props) => typeof GridViewIcon === "function" &&<GridViewIcon {...props} />,
+        icon: (props) => <GridViewIcon {...props} />,
       },
       {
         text: "Database",
         to: "/dashboard/admin/database",
-        icon: (props) => typeof DataThresholdingIcon === "function" &&<DataThresholdingIcon {...props} />,
+        icon: (props) => <DataThresholdingIcon {...props} />,
       },
       {
         text: "Releases",
         to: "/dashboard/admin/releases",
-        icon: (props) => typeof GitHubIcon === "function" &&<GitHubIcon {...props} />,
+        icon: (props) => <GitHubIcon {...props} />,
       },
     ];
   }

@@ -6,7 +6,7 @@ const COMING_SOON = new Date() < COMING_SOON_DATE;
 
 const MAINTENANCE = false;
 
-export default {
+module.exports = {
   reactStrictMode: false,
   transpilePackages: ["@mui/material", "@mui/system", "@mui/icons-material"],
   async redirects() {

@@ -78,22 +78,22 @@ function Dashboard(props) {
         <Card
           title="Auth"
           content={stats.auth ?? "Loading"}
-          icon={typeof StorageIcon === "function" && <StorageIcon />}
+          icon={<StorageIcon />}
         />
         <Card
           title="Version"
           content={stats.version ?? "Loading"}
-          icon={typeof AddIcon === "function" && <AddIcon />}
+          icon={<AddIcon />}
         />
         <Card
           title="Users"
           content={stats.users ?? "Loading"}
-          icon={typeof PeopleIcon === "function" && <PeopleIcon />}
+          icon={<PeopleIcon />}
         />
         <Card
           title="Logins"
           content={stats.logins ?? "Loading"}
-          icon={typeof LoginIcon === "function" && <LoginIcon />}
+          icon={<LoginIcon />}
         />
 
         {/* Overview - User data cards */}
@@ -107,22 +107,18 @@ function Dashboard(props) {
         <Card
           title="Username"
           content={user.username ?? "Loading"}
-          icon={typeof PersonIcon === "function" && <PersonIcon />}
+          icon={<PersonIcon />}
         />
         <Card
           title="Account Type"
           content={user.accountType ?? "Loading"}
-          icon={typeof FingerprintIcon === "function" && <FingerprintIcon />}
+          icon={<FingerprintIcon />}
         />
-        <Card
-          title="Key"
-          content={user.key ?? "Loading"}
-          icon={typeof KeyIcon === "function" && <KeyIcon />}
-        />
+        <Card title="Key" content={user.key ?? "Loading"} icon={<KeyIcon />} />
         <Card
           title="Logins"
           content={user.logins ?? "Loading"}
-          icon={typeof LoginIcon === "function" && <LoginIcon />}
+          icon={<LoginIcon />}
         />
 
         <Card.Container xs={12} sm={6} lg={6}>

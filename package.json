@@ -1,7 +1,6 @@
 {
   "name": "lightningbot",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -26,7 +25,7 @@
     "notistack": "^2.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-swipeable-views-v18": "^1.1.27",
+    "react-swipeable-views-react-18-fix": "^0.14.1",
     "react-use-websocket": "^4.2.0",
     "sharp": "^0.31.3",
     "simplebar-react": "^2.4.3"

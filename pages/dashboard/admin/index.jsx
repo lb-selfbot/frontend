@@ -102,44 +102,44 @@ function AdminDashboard(props) {
         <Card
           title="CPU Usage"
           content={stats.admin?.cpu ?? "Loading"}
-          icon={typeof DeveloperBoard === "function" && <DeveloperBoard />}
+          icon={<DeveloperBoard />}
         />
         <Card
           title="RAM Usage"
           content={stats.admin?.ram ?? "Loading"}
-          icon={typeof Memory === "function" && <Memory />}
+          icon={<Memory />}
         />
         <Card
           title="Requests per minute"
           content={stats.admin?.rpm ?? "Loading"}
-          icon={typeof ManageHistory === "function" && <ManageHistory />}
+          icon={<ManageHistory />}
         />
         <Card
           title="System Uptime"
           content={stats.admin?.uptime ?? "Loading"}
-          icon={typeof AccessTime === "function" && <AccessTime />}
+          icon={<AccessTime />}
         />
 
         {/* Regular stats */}
         <Card
           title="Auth"
           content={stats.auth ?? "Loading"}
-          icon={typeof Storage === "function" && <Storage />}
+          icon={<Storage />}
         />
         <Card
           title="Version"
           content={stats.version ?? "Loading"}
-          icon={typeof Add === "function" && <Add />}
+          icon={<Add />}
         />
         <Card
           title="Users"
           content={stats.users ?? "Loading"}
-          icon={typeof People === "function" && <People />}
+          icon={<People />}
         />
         <Card
           title="Logins"
           content={stats.logins ?? "Loading"}
-          icon={typeof Login === "function" && <Login />}
+          icon={<Login />}
         />
 
         <Card.Container xs={12} sm={12} lg={6}>

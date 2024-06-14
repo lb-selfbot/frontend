@@ -62,9 +62,7 @@ function PricingCard(props) {
 
         {description.map((line) => (
           <Box display="flex" margin="2px" gap="10px" key={line}>
-            {typeof CheckCircleOutline === "function" && (
-              <CheckCircleOutline htmlColor="#1976d2" />
-            )}
+            {<CheckCircleOutline htmlColor="#1976d2" />}
             <Typography variant="subtitle1" fontSize="15px">
               {line}
             </Typography>

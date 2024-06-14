@@ -30,9 +30,7 @@ function PasswordField(props) {
         aria-label="toggle password visibility"
         onClick={handleClickShowPassword}
       >
-        {showPassword
-          ? typeof Visisbilty === "function" && <Visibility />
-          : typeof VisibilityOff === "function" && <VisibilityOff />}
+        {showPassword ? <Visibility /> : <VisibilityOff />}
       </IconButton>
     </InputAdornment>
   );

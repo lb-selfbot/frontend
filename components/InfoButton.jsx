@@ -31,9 +31,7 @@ function InfoButton({ info }) {
       onOpen={toggleOpen}
       onClose={toggleOpen}
     >
-      <IconButton onClick={handleClick}>
-        {typeof InfoIcon === "function" && <InfoIcon />}
-      </IconButton>
+      <IconButton onClick={handleClick}>{<InfoIcon />}</IconButton>
     </Tooltip>
   );
 }

@@ -91,7 +91,7 @@ function App(props) {
               onClick={handleDrawerToggle}
               sx={{ mr: 2, display: { md: "none" } }}
             >
-              {typeof MenuIcon === "function" && <MenuIcon />}
+              {<MenuIcon />}
             </IconButton>
           )}
 

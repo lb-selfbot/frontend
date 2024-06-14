@@ -73,9 +73,7 @@ function CategorySelectionModal({ name, get, set, onConfigUpdate }) {
 
   const inputAdornment = (
     <InputAdornment position="end">
-      <IconButton onClick={onCategoryAdd}>
-        {typeof AddIcon === "function" && <AddIcon />}
-      </IconButton>
+      <IconButton onClick={onCategoryAdd}>{<AddIcon />}</IconButton>
     </InputAdornment>
   );
 
