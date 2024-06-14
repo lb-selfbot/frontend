@@ -10,6 +10,8 @@ const API_URL = DEBUG
   ? "http://localhost:8000/api"
   : "https://api.lightning-bot.com/api";
 
+const HOSTING_API_URL = "https://hosting-api.lightning-bot.com/api";
+
 const WS_URL = API_URL.replace("http", "ws") + "/v3/ws/website";
 
 // ReCAPTCHA config

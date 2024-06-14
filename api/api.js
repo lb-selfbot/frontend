@@ -1,6 +1,4 @@
-import { API_URL } from "../config/config";
-
-export const runtime = 'experimental-edge';
+import { API_URL, HOSTING_API_URL } from "../config/config";
 
 class User {
   constructor(ready, loggedIn, json) {
@@ -47,7 +45,8 @@ class ApiResponse {
 
 class HTTP {
   async Post(path, data, requestConfig) {
-    const res = await fetch(`${API_URL}${path}`, {
+    const url = path.includes("hosting") ? HOSTING_API_URL : API_URL + path;
+    const res = await fetch(url, {
       method: "POST",
       headers: !!data ? { "Content-Type": "application/json" } : {},
       body: !!data ? JSON.stringify(data) : null,

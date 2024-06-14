@@ -12,8 +12,6 @@ import iconStyles from "../../styles/Icon.module.css";
 import pageStyles from "../../styles/Page.module.css";
 import styles from "../../styles/NotFound.module.css";
 
-export const runtime = 'experimental-edge';
-
 export default function ComingSoon(props) {
   return (
     <Box className={pageStyles.pageContainer}>
