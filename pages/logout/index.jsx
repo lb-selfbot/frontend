@@ -1,7 +1,7 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography/Typography";
+import Box from "@mui/material/Box/Box";
 
 import useUser from "../../hooks/useUser";
 import { api } from "../../api/api";

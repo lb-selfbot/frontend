@@ -1,8 +1,8 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography/Typography";
+import TextField from "@mui/material/TextField/TextField";
+import Box from "@mui/material/Box/Box";
 import Link from "next/link";
 
 import { Material3Button } from "../../components/Material3Button";

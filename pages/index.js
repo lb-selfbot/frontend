@@ -1,19 +1,15 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Image from "next/image";
+import Typography from "@mui/material/Typography/Typography";
+import Box from "@mui/material/Box/Box";
 import Link from "next/link";
 
-import {
-  Settings,
-  DesktopWindows,
-  Celebration,
-  MusicNote,
-  Code,
-  AccessTime,
-} from "@mui/icons-material";
+import Settings from "@mui/icons-material/Settings";
+import DesktopWindows from "@mui/icons-material/DesktopWindows";
+import Celebration from "@mui/icons-material/Celebration";
+import MusicNote from "@mui/icons-material/MusicNote";
+import Code from "@mui/icons-material/Code";
+import AccessTime from "@mui/icons-material/AccessTime";
 
 import { Material3Button } from "../components/Material3Button.jsx";
 import { Feature } from "../components/Feature.jsx";
@@ -73,33 +69,33 @@ export default function Home() {
         <Feature
           title="Customizable"
           text="LightningBot was made with customizability in mind. You can modify a lot of settings via the UI or directly in Discord using the config commands."
-          icon={<Settings />}
+          icon={typeof Settings === "function" && <Settings />}
         />
         <Feature
           title="Snipers"
           text="LightningBot can automatically join giveaways and try to redeem Discord Nitro codes on multiple accounts at once."
-          icon={<Celebration />}
+          icon={typeof Celebration === "function" && <Celebration />}
         />
         <Feature
           title="Multi-Platform"
           text="LightningBot is one of the only multi-platform selfbots. It's available on Windows, MacOS and Linux."
-          icon={<DesktopWindows />}
+          icon={typeof DesktopWindows === "function" && <DesktopWindows />}
         />
 
         <Feature
           title="Spotify Integration"
           text="LightningBot was the first selfbot to introduce Spotify integration. With LightningBot, you can control your Spotify music easily within Discord."
-          icon={<MusicNote />}
+          icon={typeof MusicNote === "function" && <MusicNote />}
         />
         <Feature
           title="Modern Technologies"
           text="LightningBot uses the most modern technologies available. We use Golang, Flutter, Django and Next.js to give you the best experience possible."
-          icon={<Code />}
+          icon={typeof Code === "function" && <Code />}
         />
         <Feature
           title="7-day Free Trial"
           text="You can use LightningBot for free for 7 days to test out its features before buying it."
-          icon={<AccessTime />}
+          icon={typeof AccessTime === "function" && <AccessTime />}
         />
       </Feature.Container>
 

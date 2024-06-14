@@ -1,5 +1,9 @@
 import React from "react";
-import { Box, Typography, Grid, Avatar } from "@mui/material";
+
+import Box from "@mui/material/Box/Box";
+import Typography from "@mui/material/Typography/Typography";
+import Grid from "@mui/material/Grid/Grid";
+import Avatar from "@mui/material/Avatar/Avatar";
 
 import styles from "../styles/Feature.module.css";
 

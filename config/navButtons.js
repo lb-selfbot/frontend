@@ -19,17 +19,29 @@ function getNavButtons(user) {
   if (COMING_SOON || MAINTENANCE) return [];
 
   const navButtons = [
-    { text: "Home", to: "/", icon: (props) => <HomeIcon {...props} /> },
-    { text: "FAQ", to: "/faq", icon: (props) => <QuizIcon {...props} /> },
+    {
+      text: "Home",
+      to: "/",
+      icon: (props) =>
+        typeof HomeIcon === "function" && <HomeIcon {...props} />,
+    },
+    {
+      text: "FAQ",
+      to: "/faq",
+      icon: (props) =>
+        typeof QuizIcon === "function" && <QuizIcon {...props} />,
+    },
     {
       text: "Docs",
       to: "/docs",
-      icon: (props) => <DescriptionIcon {...props} />,
+      icon: (props) =>
+        typeof DescriptionIcon === "function" && <DescriptionIcon {...props} />,
     },
     {
       text: "Discord",
       to: "/discord",
-      icon: (props) => <DiscordIcon {...props} />,
+      icon: (props) =>
+        typeof DiscordIcon === "function" && <DiscordIcon {...props} />,
     },
   ];
 
@@ -37,23 +49,27 @@ function getNavButtons(user) {
     navButtons.push({
       text: "Dashboard",
       to: "/dashboard",
-      icon: (props) => <DashboardIcon {...props} />,
+      icon: (props) =>
+        typeof DashboardIcon === "function" && <DashboardIcon {...props} />,
     });
     navButtons.push({
       text: "Logout",
       to: "/logout",
-      icon: (props) => <LogoutIcon {...props} />,
+      icon: (props) =>
+        typeof LogoutIcon === "function" && <LogoutIcon {...props} />,
     });
   } else {
     navButtons.push({
       text: "Login",
       to: "/login",
-      icon: (props) => <LoginIcon {...props} />,
+      icon: (props) =>
+        typeof Loginicon === "function" && <LoginIcon {...props} />,
     });
     navButtons.push({
       text: "Sign Up",
       to: "/signup",
-      icon: (props) => <SignUpIcon {...props} />,
+      icon: (props) =>
+        typeof SignUpIcon === "function" && <SignUpIcon {...props} />,
     });
   }
 
@@ -65,51 +81,51 @@ function getDashboardNavButtons(user) {
 
   const navButtons = {
     General: [
-      { text: "Home", to: "/", icon: (props) => <HomeIcon {...props} /> },
-      { text: "FAQ", to: "/faq", icon: (props) => <QuizIcon {...props} /> },
+      { text: "Home", to: "/", icon: (props) => typeof HomeIcon === "function" &&<HomeIcon {...props} /> },
+      { text: "FAQ", to: "/faq", icon: (props) => typeof QuizIcon === "function" &&<QuizIcon {...props} /> },
       {
         text: "Docs",
         to: "/docs",
-        icon: (props) => <DescriptionIcon {...props} />,
+        icon: (props) => typeof DescriptionIcon === "function" &&<DescriptionIcon {...props} />,
       },
       {
         text: "Discord",
         to: "/discord",
-        icon: (props) => <DiscordIcon {...props} />,
+        icon: (props) => typeof DiscordIcon === "function" &&<DiscordIcon {...props} />,
       },
       {
         text: "Dashboard",
         to: "/dashboard",
-        icon: (props) => <GridViewIcon {...props} />,
+        icon: (props) => typeof GridViewicon === "function" &&<GridViewIcon {...props} />,
       },
       {
         text: "Logout",
         to: "/logout",
-        icon: (props) => <LogoutIcon {...props} />,
+        icon: (props) => typeof LogoutIcon === "function" &&<LogoutIcon {...props} />,
       },
     ],
     Dashboard: [
       {
         text: "Overview",
         to: "/dashboard",
-        icon: (props) => <GridViewIcon {...props} />,
+        icon: (props) => typeof GridViewIcon === "function" &&<GridViewIcon {...props} />,
       },
     ],
     Selfbot: [
       {
         text: "Console",
         to: "/dashboard/selfbot/console",
-        icon: (props) => <ConsoleIcon {...props} />,
+        icon: (props) => typeof ConsoleIcon === "function" &&<ConsoleIcon {...props} />,
       },
       {
         text: "Config",
         to: "/dashboard/selfbot/config",
-        icon: (props) => <ConfigIcon {...props} />,
+        icon: (props) => typeof ConfigIcon === "function" &&<ConfigIcon {...props} />,
       },
       {
         text: "Hosting",
         to: "/dashboard/selfbot/hosting",
-        icon: (props) => <StorageIcon {...props} />,
+        icon: (props) => typeof StorageIcon === "function" &&<StorageIcon {...props} />,
       },
     ],
   };
@@ -119,17 +135,17 @@ function getDashboardNavButtons(user) {
       {
         text: "Overview",
         to: "/dashboard/admin",
-        icon: (props) => <GridViewIcon {...props} />,
+        icon: (props) => typeof GridViewIcon === "function" &&<GridViewIcon {...props} />,
       },
       {
         text: "Database",
         to: "/dashboard/admin/database",
-        icon: (props) => <DataThresholdingIcon {...props} />,
+        icon: (props) => typeof DataThresholdingIcon === "function" &&<DataThresholdingIcon {...props} />,
       },
       {
         text: "Releases",
         to: "/dashboard/admin/releases",
-        icon: (props) => <GitHubIcon {...props} />,
+        icon: (props) => typeof GitHubIcon === "function" &&<GitHubIcon {...props} />,
       },
     ];
   }

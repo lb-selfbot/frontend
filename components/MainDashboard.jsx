@@ -1,9 +1,9 @@
 import React from "react";
 
-import IconButton from "@mui/material/IconButton";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton/IconButton";
+import Drawer from "@mui/material/Drawer/Drawer";
+import List from "@mui/material/List/List";
+import Box from "@mui/material/Box/Box";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -13,7 +13,7 @@ import { Subheader } from "./Subheader";
 
 import Router, { useRouter } from "next/router";
 
-import useScrollTrigger from "@mui/material/useScrollTrigger";
+import useScrollTrigger from "@mui/material/useScrollTrigger/useScrollTrigger";
 import useWebSocket from "react-use-websocket";
 import { useModal } from "mui-modal-provider";
 import { useSnackbar } from "notistack";
@@ -36,7 +36,7 @@ function onWebsocketMessage(rawMessage, enqueueSnackbar, showModal, router) {
   switch (message.op) {
     case "SELFBOT_CONNECT":
       wsData.setSelfbotConnected(true);
-      
+
       if (window.localStorage.getItem("selfbotConnected") !== "true") {
         window.localStorage.setItem("selfbotConnected", "true");
 
@@ -148,7 +148,7 @@ function MainDashboard(props) {
         onClick={handleDrawerToggle}
         sx={{ mr: 2, display: { md: "none" } }}
       >
-        <MenuIcon />
+        {typeof MenuIcon === "function" && <MenuIcon />}
       </IconButton>
     );
 

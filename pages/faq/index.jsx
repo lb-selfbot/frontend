@@ -1,7 +1,7 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography/Typography";
+import Box from "@mui/material/Box/Box";
 
 import { FAQAnswer } from "../../components/FAQAnswer.jsx";
 import { Footer } from "../../components/Footer.jsx";

@@ -1,9 +1,9 @@
 import React from "react";
 
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import Switch from "@mui/material/Switch";
-import Box from "@mui/material/Box";
+import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
+import FormControl from "@mui/material/FormControl/FormControl";
+import Switch from "@mui/material/Switch/Switch";
+import Box from "@mui/material/Box/Box";
 
 import dashStyles from "../../styles/Dashboard.module.css";
 import loginStyles from "../../styles/Login.module.css";

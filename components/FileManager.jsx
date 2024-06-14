@@ -165,7 +165,7 @@ function FileList({ files, folders, currentPath, setCurrentPath, reload }) {
           ]}
         >
           <ListItemAvatar>
-            <Folder />
+            {typeof Folder === "function" && <Folder />}
           </ListItemAvatar>
 
           <ListItemText primary={folder} />
@@ -204,7 +204,7 @@ function FileList({ files, folders, currentPath, setCurrentPath, reload }) {
           ]}
         >
           <ListItemAvatar>
-            <FileCopy />
+            {typeof FileCopy === "function" && <FileCopy />}
           </ListItemAvatar>
 
           <ListItemText primary={file} />

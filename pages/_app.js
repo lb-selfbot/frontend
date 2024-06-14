@@ -1,6 +1,6 @@
 import React from "react";
 
-import CssBaseline from "@mui/material/CssBaseline";
+import { CssBaseline } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import {
@@ -11,7 +11,7 @@ import {
 import { grey } from "@mui/material/colors";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import ModalProvider from "mui-modal-provider";
+import { ModalProvider } from "mui-modal-provider";
 import { SnackbarProvider } from "notistack";
 
 import useThemeMode from "../hooks/useThemeMode";
@@ -64,6 +64,8 @@ function Providers({ theme, children }) {
     currency: "EUR",
   };
 
+  console.log(CssBaseline);
+
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
@@ -81,7 +83,9 @@ function Providers({ theme, children }) {
 function MainApp({ Component, pageProps }) {
   const [browserModeSet, setBrowserModeSet] = React.useState(false);
   const { themeMode, setThemeMode } = useThemeMode();
-  const matches = useMediaQuery("(prefers-color-scheme: dark)");
+  const matches =
+    typeof window !== "undefined" &&
+    useMediaQuery("(prefers-color-scheme: dark)");
 
   React.useEffect(() => {
     if (!browserModeSet) {

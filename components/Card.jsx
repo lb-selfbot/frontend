@@ -1,12 +1,12 @@
 import React from "react";
 
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import MuiCard from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid/Grid";
+import Typography from "@mui/material/Typography/Typography";
+import Box from "@mui/material/Box/Box";
+import MuiCard from "@mui/material/Card/Card";
+import CardContent from "@mui/material/CardContent/CardContent";
 
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles/styles";
 
 import styles from "../styles/Card.module.css";
 import { classes } from "../utils/classes";

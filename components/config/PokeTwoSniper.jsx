@@ -1,9 +1,9 @@
 import React from "react";
 
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
-import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent/DialogContent";
+import DialogActions from "@mui/material/DialogActions/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
+import Dialog from "@mui/material/Dialog/Dialog";
 
 import { Material3Button } from "../Material3Button";
 import { TextFieldTooltip } from "../TextFieldTooltip";

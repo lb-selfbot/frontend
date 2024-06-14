@@ -2,9 +2,9 @@ import React from "react";
 
 import Image from "next/image";
 
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography/Typography";
+import Grid from "@mui/material/Grid/Grid";
+import Box from "@mui/material/Box/Box";
 
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DeviceHubIcon from "@mui/icons-material/DeviceHub";
@@ -130,21 +130,21 @@ function SelfbotConsole(props) {
               lg={4}
               title="Status"
               content={selfbotConnected ? "Connected" : "Disconnected"}
-              icon={<ComputerIcon />}
+              icon={typeof ComputerIcon === "function" &&<ComputerIcon />}
             />
 
             <Card
               lg={4}
               title="Version"
               content={stats.version ?? "Loading"}
-              icon={<DeviceHubIcon />}
+              icon={typeof DeviceHubIcon === "function" &&<DeviceHubIcon />}
             />
 
             <Card
               lg={4}
               title="Time Logged In"
               content={parsedLoginTime}
-              icon={<AccessTimeIcon />}
+              icon={typeof AccessTimeIcon === "function" &&<AccessTimeIcon />}
             />
           </Grid>
         </Grid>

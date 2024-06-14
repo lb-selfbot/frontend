@@ -1,15 +1,15 @@
 import React from "react";
 
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Divider from "@mui/material/Divider";
-import Dialog from "@mui/material/Dialog";
-import Box from "@mui/material/Box";
+import DialogContentText from "@mui/material/DialogContentText/DialogContentText";
+import DialogContent from "@mui/material/DialogContent/DialogContent";
+import DialogActions from "@mui/material/DialogActions/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
+import CardContent from "@mui/material/CardContent/CardContent";
+import Typography from "@mui/material/Typography/Typography";
+import TextField from "@mui/material/TextField/TextField";
+import Divider from "@mui/material/Divider/Divider";
+import Dialog from "@mui/material/Dialog/Dialog";
+import Box from "@mui/material/Box/Box";
 
 import { Material3Button } from "../Material3Button";
 import { Card } from "../Card";

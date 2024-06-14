@@ -1,9 +1,9 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography/Typography";
+import Tabs from "@mui/material/Tabs/Tabs";
+import Tab from "@mui/material/Tab/Tab";
+import Box from "@mui/material/Box/Box";
 
 import SwipeableViews from "react-swipeable-views-v18";
 

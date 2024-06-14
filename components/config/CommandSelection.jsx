@@ -1,18 +1,18 @@
 import React from "react";
 
-import InputAdornment from "@mui/material/InputAdornment";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
-import FormControl from "@mui/material/FormControl";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import Dialog from "@mui/material/Dialog";
-import Chip from "@mui/material/Chip";
-import Box from "@mui/material/Box";
+import InputAdornment from "@mui/material/InputAdornment/InputAdornment";
+import DialogContent from "@mui/material/DialogContent/DialogContent";
+import DialogActions from "@mui/material/DialogActions/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
+import FormControl from "@mui/material/FormControl/FormControl";
+import IconButton from "@mui/material/IconButton/IconButton";
+import Typography from "@mui/material/Typography/Typography";
+import InputLabel from "@mui/material/InputLabel/InputLabel";
+import MenuItem from "@mui/material/MenuItem/MenuItem";
+import Select from "@mui/material/Select/Select";
+import Dialog from "@mui/material/Dialog/Dialog";
+import Chip from "@mui/material/Chip/Chip";
+import Box from "@mui/material/Box/Box";
 
 import AddIcon from "@mui/icons-material/Add";
 
@@ -72,7 +72,7 @@ function CommandSelectionModal({ name, get, set, onConfigUpdate }) {
   const inputAdornment = (
     <InputAdornment position="end">
       <IconButton onClick={onCommandAdd}>
-        <AddIcon />
+      {typeof AddIcon === "function" &&<AddIcon />}
       </IconButton>
     </InputAdornment>
   );

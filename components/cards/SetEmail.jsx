@@ -1,12 +1,12 @@
 import React from "react";
 
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Dialog from "@mui/material/Dialog";
+import DialogContentText from "@mui/material/DialogContentText/DialogContentText";
+import DialogContent from "@mui/material/DialogContent/DialogContent";
+import DialogActions from "@mui/material/DialogActions/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
+import CardContent from "@mui/material/CardContent/CardContent";
+import Typography from "@mui/material/Typography/Typography";
+import Dialog from "@mui/material/Dialog/Dialog";
 
 import { Material3Button } from "../Material3Button";
 import { TextFieldTooltip } from "../TextFieldTooltip";

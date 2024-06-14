@@ -1,14 +1,14 @@
 import React from "react";
 
-import FormControlLabel from "@mui/material/FormControlLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import Switch from "@mui/material/Switch";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
+import InputAdornment from "@mui/material/InputAdornment/InputAdornment";
+import FormControl from "@mui/material/FormControl/FormControl";
+import InputLabel from "@mui/material/InputLabel/InputLabel";
+import MenuItem from "@mui/material/MenuItem/MenuItem";
+import Select from "@mui/material/Select/Select";
+import Switch from "@mui/material/Switch/Switch";
+import Grid from "@mui/material/Grid/Grid";
+import Box from "@mui/material/Box/Box";
 
 import { TextFieldTooltip } from "./TextFieldTooltip";
 import InfoButton from "./InfoButton";

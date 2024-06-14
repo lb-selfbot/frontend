@@ -1,7 +1,7 @@
 import React from "react";
 
-import InputAdornment from "@mui/material/InputAdornment";
-import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment/InputAdornment";
+import TextField from "@mui/material/TextField/TextField";
 
 import InfoButton from "./InfoButton";
 

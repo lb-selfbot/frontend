@@ -1,15 +1,15 @@
 import React from "react";
 
-import InputAdornment from "@mui/material/InputAdornment";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import Chip from "@mui/material/Chip";
-import Box from "@mui/material/Box";
+import InputAdornment from "@mui/material/InputAdornment/InputAdornment";
+import DialogContent from "@mui/material/DialogContent/DialogContent";
+import DialogActions from "@mui/material/DialogActions/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
+import IconButton from "@mui/material/IconButton/IconButton";
+import Typography from "@mui/material/Typography/Typography";
+import TextField from "@mui/material/TextField/TextField";
+import Dialog from "@mui/material/Dialog/Dialog";
+import Chip from "@mui/material/Chip/Chip";
+import Box from "@mui/material/Box/Box";
 
 import AddIcon from "@mui/icons-material/Add";
 
@@ -23,7 +23,13 @@ import { wsData } from "../../wsData/wsData";
 
 import dashStyles from "../../styles/Dashboard.module.css";
 
-function ChannelChip({ server: channels, servers, set, onDelete, onConfigUpdate }) {
+function ChannelChip({
+  server: channels,
+  servers,
+  set,
+  onDelete,
+  onConfigUpdate,
+}) {
   return (
     <Chip
       label={channels}
@@ -70,7 +76,7 @@ function ChannelSelectionModal({ name, get, set, onConfigUpdate }) {
   const inputAdornment = (
     <InputAdornment position="end">
       <IconButton onClick={onChannelAdd}>
-        <AddIcon />
+        {typeof AddIcon === "function" && <AddIcon />}
       </IconButton>
     </InputAdornment>
   );

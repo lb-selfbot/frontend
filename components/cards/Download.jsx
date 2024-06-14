@@ -1,13 +1,13 @@
 import React from "react";
 
-import InputAdornment from "@mui/material/InputAdornment";
-import CardContent from "@mui/material/CardContent";
-import FormControl from "@mui/material/FormControl";
-import Typography from "@mui/material/Typography";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import Grid from "@mui/material/Grid";
+import InputAdornment from "@mui/material/InputAdornment/InputAdornment";
+import CardContent from "@mui/material/CardContent/CardContent";
+import FormControl from "@mui/material/FormControl/FormControl";
+import Typography from "@mui/material/Typography/Typography";
+import InputLabel from "@mui/material/InputLabel/InputLabel";
+import MenuItem from "@mui/material/MenuItem/MenuItem";
+import Select from "@mui/material/Select/Select";
+import Grid from "@mui/material/Grid/Grid";
 
 import { Material3Button } from "../Material3Button";
 import InfoButton from "../InfoButton";
@@ -139,7 +139,9 @@ export function Download() {
     } else if (osValue === "macos") {
       url += `/macos/${typeValue}${typeValue === "ui" ? ".dmg" : ""}`;
     } else if (osValue === "linux" || osValue === "android") {
-      url += `/linux/${archValue}/${typeValue}${typeValue === "ui" ? ".deb" : ""}`;
+      url += `/linux/${archValue}/${typeValue}${
+        typeValue === "ui" ? ".deb" : ""
+      }`;
     }
 
     window.open(url, "_blank");

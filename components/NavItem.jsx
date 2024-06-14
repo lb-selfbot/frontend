@@ -1,11 +1,11 @@
 import React from "react";
 
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Typography from "@mui/material/Typography";
-import ListItem from "@mui/material/ListItem";
-import Box from "@mui/material/Box";
+import ListItemButton from "@mui/material/ListItemButton/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText/ListItemText";
+import Typography from "@mui/material/Typography/Typography";
+import ListItem from "@mui/material/ListItem/ListItem";
+import Box from "@mui/material/Box/Box";
 import Link from "next/link";
 
 import { useRouter } from "next/router";

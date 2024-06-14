@@ -1,8 +1,8 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
+import Typography from "@mui/material/Typography/Typography";
 import { DataGrid } from "@mui/x-data-grid";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Grid/Grid";
 
 import { MainDashboard } from "../../../../components/MainDashboard";
 import { Loading } from "../../../../components/Loading";

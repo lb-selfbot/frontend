@@ -1,7 +1,7 @@
 import React from "react";
 
-import List from "@mui/material/List";
-import Subheader from "@mui/material/ListSubheader";
+import List from "@mui/material/List/List";
+import Subheader from "@mui/material/ListSubheader/ListSubheader";
 
 import { LeftNavItem } from "./NavItem";
 

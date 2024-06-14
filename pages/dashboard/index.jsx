@@ -1,8 +1,8 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import Portal from "@mui/material/Portal";
-import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography/Typography";
+import Portal from "@mui/material/Portal/Portal";
+import Grid from "@mui/material/Grid/Grid";
 
 import StorageIcon from "@mui/icons-material/Storage";
 import AddIcon from "@mui/icons-material/Add";
@@ -78,22 +78,22 @@ function Dashboard(props) {
         <Card
           title="Auth"
           content={stats.auth ?? "Loading"}
-          icon={<StorageIcon />}
+          icon={typeof StorageIcon === "function" && <StorageIcon />}
         />
         <Card
           title="Version"
           content={stats.version ?? "Loading"}
-          icon={<AddIcon />}
+          icon={typeof AddIcon === "function" && <AddIcon />}
         />
         <Card
           title="Users"
           content={stats.users ?? "Loading"}
-          icon={<PeopleIcon />}
+          icon={typeof PeopleIcon === "function" && <PeopleIcon />}
         />
         <Card
           title="Logins"
           content={stats.logins ?? "Loading"}
-          icon={<LoginIcon />}
+          icon={typeof LoginIcon === "function" && <LoginIcon />}
         />
 
         {/* Overview - User data cards */}
@@ -107,18 +107,22 @@ function Dashboard(props) {
         <Card
           title="Username"
           content={user.username ?? "Loading"}
-          icon={<PersonIcon />}
+          icon={typeof PersonIcon === "function" && <PersonIcon />}
         />
         <Card
           title="Account Type"
           content={user.accountType ?? "Loading"}
-          icon={<FingerprintIcon />}
+          icon={typeof FingerprintIcon === "function" && <FingerprintIcon />}
         />
-        <Card title="Key" content={user.key ?? "Loading"} icon={<KeyIcon />} />
+        <Card
+          title="Key"
+          content={user.key ?? "Loading"}
+          icon={typeof KeyIcon === "function" && <KeyIcon />}
+        />
         <Card
           title="Logins"
           content={user.logins ?? "Loading"}
-          icon={<LoginIcon />}
+          icon={typeof LoginIcon === "function" && <LoginIcon />}
         />
 
         <Card.Container xs={12} sm={6} lg={6}>

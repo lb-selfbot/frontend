@@ -2,11 +2,11 @@ import React from "react";
 
 import dynamic from "next/dynamic";
 
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Portal from "@mui/material/Portal";
+import Typography from "@mui/material/Typography/Typography";
+import Box from "@mui/material/Box/Box";
+import Grid from "@mui/material/Grid/Grid";
+import Button from "@mui/material/Button/Button";
+import Portal from "@mui/material/Portal/Portal";
 
 import { MainDashboard } from "../../../../components/MainDashboard";
 import { Card } from "../../../../components/Card";
@@ -81,7 +81,7 @@ function SelfbotHosting(props) {
     if (!user.ready) {
       return;
     }
-    
+
     if (user.key === "None") {
       enqueueSnackbar("You must have a license key to use hosting.", {
         variant: "error",
@@ -129,7 +129,7 @@ function SelfbotHosting(props) {
         <Card
           title="Status"
           content={hostingEnabled ? "Enabled" : "Disabled"}
-          icon={<DeveloperBoard />}
+          icon={typeof DeveloperBoard === "function" && <DeveloperBoard />}
         >
           <Box style={{ marginLeft: 10, display: "inline" }}>
             <Button variant="outlined" size="small" onClick={onHostingToggle}>
@@ -137,7 +137,11 @@ function SelfbotHosting(props) {
             </Button>
           </Box>
         </Card>
-        <Card title="Credit" content={parsedHostingTime} icon={<Memory />}>
+        <Card
+          title="Credit"
+          content={parsedHostingTime}
+          icon={typeof Memory === "function" && <Memory />}
+        >
           <Box style={{ marginLeft: 10, display: "inline" }}>
             <Button variant="outlined" size="small" onClick={onGetMoreCredits}>
               Get More
@@ -147,12 +151,12 @@ function SelfbotHosting(props) {
         <Card
           title="Hosting Server Status"
           content={stats.hosting_status ?? "Loading"}
-          icon={<ManageHistory />}
+          icon={typeof ManageHistory === "function" && <ManageHistory />}
         />
         <Card
           title="Hosted Bots"
           content={stats.hosting ?? "Loading"}
-          icon={<AccessTime />}
+          icon={typeof AccessTime === "function" && <AccessTime />}
         />
         <Grid item xs={12}>
           <Typography variant="h4" className={titleClasses}>

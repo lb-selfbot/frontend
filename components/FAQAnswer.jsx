@@ -1,17 +1,19 @@
 import React from "react";
 
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import Accordion from "@mui/material/Accordion";
-import Box from "@mui/material/Box";
+import AccordionSummary from "@mui/material/AccordionSummary/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails/AccordionDetails";
+import Typography from "@mui/material/Typography/Typography";
+import Accordion from "@mui/material/Accordion/Accordion";
+import Box from "@mui/material/Box/Box";
 
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
 import styles from "../styles/FAQ.module.css";
 
 function FAQAnswer(props) {
-  const expandIcon = <ExpandMore htmlColor="rgb(238, 238, 239)" />;
+  const expandIcon = typeof ExpandMore === "function" && (
+    <ExpandMore htmlColor="rgb(238, 238, 239)" />
+  );
   const { question, answer } = props;
 
   return (

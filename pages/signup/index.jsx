@@ -1,10 +1,10 @@
 import React from "react";
 
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Checkbox from "@mui/material/Checkbox";
-import Box from "@mui/material/Box";
+import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
+import Typography from "@mui/material/Typography/Typography";
+import TextField from "@mui/material/TextField/TextField";
+import Checkbox from "@mui/material/Checkbox/Checkbox";
+import Box from "@mui/material/Box/Box";
 import Link from "next/link";
 
 import { Material3Button } from "../../components/Material3Button";

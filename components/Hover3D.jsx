@@ -1,6 +1,6 @@
 import React from "react";
 
-import Box from "@mui/material/Box";
+import Box from "@mui/material/Box/Box";
 
 import styles from "../styles/Hover3D.module.css";
 

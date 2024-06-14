@@ -1,14 +1,14 @@
 import React from "react";
 
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Box from "@mui/material/Box";
+import CardContent from "@mui/material/CardContent/CardContent";
+import Typography from "@mui/material/Typography/Typography";
+import TextField from "@mui/material/TextField/TextField";
+import Grid from "@mui/material/Grid/Grid";
+import FormControl from "@mui/material/FormControl/FormControl";
+import InputLabel from "@mui/material/InputLabel/InputLabel";
+import Select from "@mui/material/Select/Select";
+import MenuItem from "@mui/material/MenuItem/MenuItem";
+import Box from "@mui/material/Box/Box";
 
 import {
   DeveloperBoard,
@@ -102,44 +102,44 @@ function AdminDashboard(props) {
         <Card
           title="CPU Usage"
           content={stats.admin?.cpu ?? "Loading"}
-          icon={<DeveloperBoard />}
+          icon={typeof DeveloperBoard === "function" &&<DeveloperBoard />}
         />
         <Card
           title="RAM Usage"
           content={stats.admin?.ram ?? "Loading"}
-          icon={<Memory />}
+          icon={typeof Memory === "function" &&<Memory />}
         />
         <Card
           title="Requests per minute"
           content={stats.admin?.rpm ?? "Loading"}
-          icon={<ManageHistory />}
+          icon={typeof ManageHistory === "function" &&<ManageHistory />}
         />
         <Card
           title="System Uptime"
           content={stats.admin?.uptime ?? "Loading"}
-          icon={<AccessTime />}
+          icon={typeof AccessTime === "function" &&<AccessTime />}
         />
 
         {/* Regular stats */}
         <Card
           title="Auth"
           content={stats.auth ?? "Loading"}
-          icon={<Storage />}
+          icon={typeof Storage === "function" &&<Storage />}
         />
         <Card
           title="Version"
           content={stats.version ?? "Loading"}
-          icon={<Add />}
+          icon={typeof Add === "function" &&<Add />}
         />
         <Card
           title="Users"
           content={stats.users ?? "Loading"}
-          icon={<People />}
+          icon={typeof People === "function" &&<People />}
         />
         <Card
           title="Logins"
           content={stats.logins ?? "Loading"}
-          icon={<Login />}
+          icon={typeof Login === "function" &&<Login />}
         />
 
         <Card.Container xs={12} sm={12} lg={6}>

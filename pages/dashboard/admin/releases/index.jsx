@@ -1,10 +1,10 @@
 import React from "react";
 
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
+import CardContent from "@mui/material/CardContent/CardContent";
+import Typography from "@mui/material/Typography/Typography";
+import TextField from "@mui/material/TextField/TextField";
 import { DataGrid } from "@mui/x-data-grid";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Grid/Grid";
 
 import { Material3Button } from "../../../../components/Material3Button";
 import { MainDashboard } from "../../../../components/MainDashboard";

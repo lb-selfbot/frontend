@@ -1,7 +1,7 @@
 import React from "react";
 
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent/CardContent";
+import Typography from "@mui/material/Typography/Typography";
 
 import { Material3Button } from "../Material3Button";
 import PasswordField from "../PasswordField";

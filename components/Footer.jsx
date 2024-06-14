@@ -1,9 +1,9 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography/Typography";
+import Container from "@mui/material/Container/Container";
+import Divider from "@mui/material/Divider/Divider";
+import Box from "@mui/material/Box/Box";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,7 +25,8 @@ function Footer() {
         <Divider mb={2} />
 
         <Typography variant="subtitle1" align="center" component="p">
-          Copyright © 2020 - {new Date().getFullYear()} lightning-bot.com | All Rights Reserved
+          Copyright © 2020 - {new Date().getFullYear()} lightning-bot.com | All
+          Rights Reserved
         </Typography>
       </Container>
     </Box>

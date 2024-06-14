@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment/InputAdornment";
+import IconButton from "@mui/material/IconButton/IconButton";
+import TextField from "@mui/material/TextField/TextField";
 
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Visibility from "@mui/icons-material/Visibility";
@@ -30,7 +30,9 @@ function PasswordField(props) {
         aria-label="toggle password visibility"
         onClick={handleClickShowPassword}
       >
-        {showPassword ? <Visibility /> : <VisibilityOff />}
+        {showPassword
+          ? typeof Visisbilty === "function" && <Visibility />
+          : typeof VisibilityOff === "function" && <VisibilityOff />}
       </IconButton>
     </InputAdornment>
   );

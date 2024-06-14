@@ -1,10 +1,10 @@
 import React from "react";
 
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography/Typography";
+import IconButton from "@mui/material/IconButton/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import Drawer from "@mui/material/Drawer";
-import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer/Drawer";
+import Box from "@mui/material/Box/Box";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -91,7 +91,7 @@ function App(props) {
               onClick={handleDrawerToggle}
               sx={{ mr: 2, display: { md: "none" } }}
             >
-              <MenuIcon />
+              {typeof MenuIcon === "function" && <MenuIcon />}
             </IconButton>
           )}
 
