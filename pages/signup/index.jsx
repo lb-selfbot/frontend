@@ -13,7 +13,7 @@ import PasswordField from "../../components/PasswordField";
 import useUser from "../../hooks/useUser";
 
 import { RECAPTCHA_SITEKEY } from "../../config/config";
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 import Router from "next/router";
 

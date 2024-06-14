@@ -12,7 +12,7 @@ import { useModal } from "mui-modal-provider";
 import { useSnackbar } from "notistack";
 
 import { handleTableChange } from "../../hooks/useTableData";
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 import dashStyles from "../../styles/Dashboard.module.css";
 

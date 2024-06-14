@@ -15,7 +15,7 @@ import Router from "next/router";
 import useUser from "../../hooks/useUser";
 
 import { RECAPTCHA_SITEKEY } from "../../config/config";
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 import pageStyles from "../../styles/Page.module.css";
 import styles from "../../styles/Login.module.css";

@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography/Typography";
 import Box from "@mui/material/Box/Box";
 
 import useUser from "../../hooks/useUser";
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 import Router from "next/router";
 

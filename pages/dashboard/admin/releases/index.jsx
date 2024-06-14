@@ -17,7 +17,7 @@ import { useSnackbar } from "notistack";
 
 import { releasesColumns } from "../../../../config/tableColumns";
 import { classes } from "../../../../utils/classes";
-import { api } from "../../../../api/api";
+import { api } from "../../../../lbapi/lbapi";
 
 import Router from "next/router";
 

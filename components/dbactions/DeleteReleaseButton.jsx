@@ -5,7 +5,7 @@ import { Material3Button } from "../Material3Button";
 import { useSnackbar } from "notistack";
 
 import { handleTableChange } from "../../hooks/useTableData";
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 export function DeleteReleaseButton(props) {
   const { enqueueSnackbar } = useSnackbar();
