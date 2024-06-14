@@ -64,8 +64,6 @@ function Providers({ theme, children }) {
     currency: "EUR",
   };
 
-  console.log(CssBaseline);
-
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
