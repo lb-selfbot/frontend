@@ -1,6 +1,6 @@
 import ListSubheader from "@mui/material/ListSubheader/ListSubheader";
 
-import styled from "@mui/material/styles/styles/styled";
+import { styled } from "@mui/material/styles";
 
 const Subheader = styled(ListSubheader)({
   fontWeight: 700,

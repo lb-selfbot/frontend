@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography/Typography";
 import Box from "@mui/material/Box/Box";
 import Grid from "@mui/material/Grid/Grid";
 import Button from "@mui/material/Button/Button";
-import Portal from "@mui/material/Portal/Portal";
+import Portal from "@mui/material/Portal";
 
 import { MainDashboard } from "../../../../components/MainDashboard";
 import { Card } from "../../../../components/Card";

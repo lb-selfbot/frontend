@@ -1,7 +1,7 @@
 import React from "react";
 
 import Typography from "@mui/material/Typography/Typography";
-import Portal from "@mui/material/Portal/Portal";
+import Portal from "@mui/material/Portal";
 import Grid from "@mui/material/Grid/Grid";
 
 import StorageIcon from "@mui/icons-material/Storage";

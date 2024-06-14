@@ -6,7 +6,7 @@ import Box from "@mui/material/Box/Box";
 import MuiCard from "@mui/material/Card/Card";
 import CardContent from "@mui/material/CardContent/CardContent";
 
-import { useTheme } from "@mui/material/styles/styles";
+import { useTheme } from "@mui/material/styles";
 
 import styles from "../styles/Card.module.css";
 import { classes } from "../utils/classes";
