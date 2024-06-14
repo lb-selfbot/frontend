@@ -125,4 +125,10 @@ function MainApp({ Component, pageProps }) {
   );
 }
 
-export default MainApp;
+export default function MainAppWithSuspense(props) {
+  return (
+    <React.Suspense fallback="Loading...">
+      <MainApp {...props} />
+    </React.Suspense>
+  );
+};
