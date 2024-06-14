@@ -23,7 +23,7 @@ import useFileManagerContent from "../hooks/useFileManagerContent";
 import { API_URL } from "../config/config";
 
 import dashStyles from "../styles/Dashboard.module.css";
-import { api } from "../api/api";
+import { api } from "../lbapi/lbapi";
 
 import { useSnackbar } from "notistack";
 

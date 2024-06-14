@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { api } from "../api/api";
+import { api } from "../lbapi/lbapi";
 
 function useStats(cache = 60) {
   const [stats, setStats] = useState(api.stats);

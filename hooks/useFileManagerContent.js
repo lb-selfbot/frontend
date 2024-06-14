@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { api } from "../api/api";
+import { api } from "../lbapi/lbapi";
 
 function useFileManagerContent() {
   const [content, setContent] = useState({});

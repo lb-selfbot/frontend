@@ -19,7 +19,7 @@ import { useSnackbar } from "notistack";
 
 import { RECAPTCHA_SITEKEY } from "../../config/config";
 import { resellers } from "../../config/resellers";
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 import dashStyles from "../../styles/Dashboard.module.css";
 import loginStyles from "../../styles/Login.module.css";

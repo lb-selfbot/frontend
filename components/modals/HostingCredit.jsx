@@ -19,7 +19,7 @@ import PasswordField from "../PasswordField";
 
 import { useSnackbar } from "notistack";
 
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 import openSellpassEmbed from "../../utils/sellpass";
 

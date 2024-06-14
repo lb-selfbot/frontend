@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { api, User } from "../api/api";
+import { api, User } from "../lbapi/lbapi";
 
 function useUser(cache = 60) {
   const [user, setUser] = useState(api.user);

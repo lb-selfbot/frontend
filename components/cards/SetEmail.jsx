@@ -15,7 +15,7 @@ import { Card } from "../Card";
 
 import { useSnackbar } from "notistack";
 
-import { api } from "../../api/api";
+import { api } from "../../lbapi/lbapi";
 
 import dashStyles from "../../styles/Dashboard.module.css";
 import loginStyles from "../../styles/Login.module.css";

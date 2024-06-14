@@ -30,7 +30,7 @@ import useStats from "../../../hooks/useStats";
 import useUser from "../../../hooks/useUser";
 
 import { classes } from "../../../utils/classes";
-import { api } from "../../../api/api";
+import { api } from "../../../lbapi/lbapi";
 
 import dashStyles from "../../../styles/Dashboard.module.css";
 import loginStyles from "../../../styles/Login.module.css";
@@ -102,44 +102,44 @@ function AdminDashboard(props) {
         <Card
           title="CPU Usage"
           content={stats.admin?.cpu ?? "Loading"}
-          icon={typeof DeveloperBoard === "function" &&<DeveloperBoard />}
+          icon={typeof DeveloperBoard === "function" && <DeveloperBoard />}
         />
         <Card
           title="RAM Usage"
           content={stats.admin?.ram ?? "Loading"}
-          icon={typeof Memory === "function" &&<Memory />}
+          icon={typeof Memory === "function" && <Memory />}
         />
         <Card
           title="Requests per minute"
           content={stats.admin?.rpm ?? "Loading"}
-          icon={typeof ManageHistory === "function" &&<ManageHistory />}
+          icon={typeof ManageHistory === "function" && <ManageHistory />}
         />
         <Card
           title="System Uptime"
           content={stats.admin?.uptime ?? "Loading"}
-          icon={typeof AccessTime === "function" &&<AccessTime />}
+          icon={typeof AccessTime === "function" && <AccessTime />}
         />
 
         {/* Regular stats */}
         <Card
           title="Auth"
           content={stats.auth ?? "Loading"}
-          icon={typeof Storage === "function" &&<Storage />}
+          icon={typeof Storage === "function" && <Storage />}
         />
         <Card
           title="Version"
           content={stats.version ?? "Loading"}
-          icon={typeof Add === "function" &&<Add />}
+          icon={typeof Add === "function" && <Add />}
         />
         <Card
           title="Users"
           content={stats.users ?? "Loading"}
-          icon={typeof People === "function" &&<People />}
+          icon={typeof People === "function" && <People />}
         />
         <Card
           title="Logins"
           content={stats.logins ?? "Loading"}
-          icon={typeof Login === "function" &&<Login />}
+          icon={typeof Login === "function" && <Login />}
         />
 
         <Card.Container xs={12} sm={12} lg={6}>

@@ -27,7 +27,7 @@ import { useSnackbar } from "notistack";
 import { millisecondsToTime } from "../../../../utils/millisecondsToTime";
 import useStats from "../../../../hooks/useStats";
 import useUser from "../../../../hooks/useUser";
-import { api } from "../../../../api/api";
+import { api } from "../../../../lbapi/lbapi";
 
 import FileManager from "../../../../components/FileManager";
 
