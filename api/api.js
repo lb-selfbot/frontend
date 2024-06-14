@@ -1,5 +1,7 @@
 import { API_URL } from "../config/config";
 
+export const runtime = 'experimental-edge';
+
 class User {
   constructor(ready, loggedIn, json) {
     this.ready = ready;
