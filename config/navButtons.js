@@ -131,7 +131,6 @@ function getDashboardNavButtons(user) {
   };
 
   if (user.ready && user.isStaff) {
-    console.log(DataThresholdingIcon);
     navButtons.Admin = [
       {
         text: "Overview",
