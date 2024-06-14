@@ -1,7 +1,6 @@
 import React from "react";
 
 import { CssBaseline } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 import {
   StyledEngineProvider,
@@ -79,20 +78,19 @@ function Providers({ theme, children }) {
 }
 
 function MainApp({ Component, pageProps }) {
-  const [browserModeSet, setBrowserModeSet] = React.useState(false);
   const { themeMode, setThemeMode } = useThemeMode();
-  const matches = useMediaQuery("(prefers-color-scheme: dark)");
+  // const matches = useMediaQuery("(prefers-color-scheme: dark)");
 
-  React.useEffect(() => {
-    if (!browserModeSet) {
-      if (matches) {
-        setThemeMode("dark");
-      } else {
-        setThemeMode("light");
-      }
-      setBrowserModeSet(true);
-    }
-  }, [matches, browserModeSet, setThemeMode]);
+  // React.useEffect(() => {
+  //   if (!browserModeSet) {
+  //     if (matches) {
+  //       setThemeMode("dark");
+  //     } else {
+  //       setThemeMode("light");
+  //     }
+  //     setBrowserModeSet(true);
+  //   }
+  // }, [matches, browserModeSet, setThemeMode]);
 
   const theme = themeMode === "dark" ? darkTheme : lightTheme;
 
