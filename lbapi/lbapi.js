@@ -45,7 +45,7 @@ class ApiResponse {
 
 class HTTP {
   async Post(path, data, requestConfig) {
-    const url = path.includes("hosting") ? HOSTING_API_URL : API_URL + path;
+    const url = (path.includes("hosting") ? HOSTING_API_URL : API_URL) + path;
     const res = await fetch(url, {
       method: "POST",
       headers: !!data ? { "Content-Type": "application/json" } : {},
@@ -60,7 +60,8 @@ class HTTP {
   }
 
   async Get(path, requestConfig) {
-    const res = await fetch(`${API_URL}${path}`, {
+    const url = (path.includes("hosting") ? HOSTING_API_URL : API_URL) + path;
+    const res = await fetch(url, {
       method: "GET",
       credentials: "include",
       mode: "cors",
