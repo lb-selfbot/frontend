@@ -71,9 +71,7 @@ function CommandSelectionModal({ name, get, set, onConfigUpdate }) {
 
   const inputAdornment = (
     <InputAdornment position="end">
-      <IconButton onClick={onCommandAdd}>
-      {typeof AddIcon === "function" &&<AddIcon />}
-      </IconButton>
+      <IconButton onClick={onCommandAdd}>{<AddIcon />}</IconButton>
     </InputAdornment>
   );
 

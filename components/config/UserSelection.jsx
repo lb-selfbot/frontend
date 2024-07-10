@@ -69,9 +69,7 @@ function UserSelectionModal({ name, get, set, onConfigUpdate }) {
 
   const inputAdornment = (
     <InputAdornment position="end">
-      <IconButton onClick={onUserAdd}>
-      {typeof AddIcon === "function" &&<AddIcon />}
-      </IconButton>
+      <IconButton onClick={onUserAdd}>{<AddIcon />}</IconButton>
     </InputAdornment>
   );
 

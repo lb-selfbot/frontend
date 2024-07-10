@@ -69,9 +69,7 @@ function TextSelectionModal({ name, get, set, onConfigUpdate }) {
 
   const inputAdornment = (
     <InputAdornment position="end">
-      <IconButton onClick={onTextAdd}>
-      {typeof AddIcon === "function" &&<AddIcon />}
-      </IconButton>
+      <IconButton onClick={onTextAdd}>{<AddIcon />}</IconButton>
     </InputAdornment>
   );
 

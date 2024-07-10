@@ -69,9 +69,7 @@ function ServerSelectionModal({ name, get, set, onConfigUpdate }) {
 
   const inputAdornment = (
     <InputAdornment position="end">
-      <IconButton onClick={onServerAdd}>
-      {typeof AddIcon === "function" &&<AddIcon />}
-      </IconButton>
+      <IconButton onClick={onServerAdd}>{<AddIcon />}</IconButton>
     </InputAdornment>
   );
 
