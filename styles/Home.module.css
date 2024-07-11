@@ -28,7 +28,7 @@
 
 .landingTitleBlurple {
   display: inline;
-  background: linear-gradient(to right, #7289da, #5865f2);
+  background: linear-gradient(to left, #7289da, #5865f2);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
