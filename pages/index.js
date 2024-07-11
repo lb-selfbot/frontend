@@ -33,7 +33,9 @@ export default function Home() {
           <Box className={styles.landingInnerContainer}>
             <Box className={styles.landingContentContainer}>
               <Typography variant="h2" className={styles.landingTitle}>
-                Improve your Discord experience with{" "}
+                Improve your{" "}
+                <Box className={styles.landingTitleBlurple}>Discord</Box>
+                {" "}experience with{" "}
                 <Box className={styles.landingTitleGradient}>LightningBot</Box>
               </Typography>
               <Typography variant="h6" className={styles.landingSubtitle}>
