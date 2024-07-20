@@ -104,16 +104,6 @@ export const configFields = {
       },
     },
     {
-      name: "Mobile Friendly",
-      type: "switch",
-      info: "If enabled, the bot will not use colored codeblocks to improve readability on mobile.",
-      get: (config) => config.Selfbot?.MobileFriendly,
-      set: (config, value) => {
-        config.Selfbot.MobileFriendly = value;
-        return config;
-      },
-    },
-    {
       name: "Client Spoof",
       type: "dropdown",
       info: "The client that the selfbot will show up as for Discord. A restart of the selfbot is required for any changes to take effect.",
@@ -141,6 +131,12 @@ export const configFields = {
           info: "The mobile client.",
           icon: "link",
         },
+        {
+          label: "Console",
+          value: "Console",
+          info: "The console client.",
+          icon: "link",
+        },
       ],
     },
     {
@@ -150,6 +146,36 @@ export const configFields = {
       get: (config) => config.Selfbot?.Timezone,
       set: (config, value) => {
         config.Selfbot.Timezone = value;
+        return config;
+      },
+    },
+    {
+      name: "Embed Color (for URL Embeds)",
+      type: "text",
+      info: "The color (in hex format, e.g. #FF0000) that the bot will use for the embeds in URL embed mode.",
+      get: (config) => config.Selfbot?.EmbedColor,
+      set: (config, value) => {
+        config.Selfbot.EmbedColor = value;
+        return config;
+      },
+    },
+    {
+      name: "Embed Image URL (for URL Embeds)",
+      type: "text",
+      info: "The URL of the image that the bot will use for the embeds in URL embed mode.",
+      get: (config) => config.Selfbot?.EmbedImage,
+      set: (config, value) => {
+        config.Selfbot.EmbedImage = value;
+        return config;
+      },
+    },
+    {
+      name: "Embed URL (for URL Embeds)",
+      type: "text",
+      info: "The redirect URL that the bot will use for the embeds in URL embed mode. This is the URL that will be opened when the embed title is pressed.",
+      get: (config) => config.Selfbot?.EmbedURL,
+      set: (config, value) => {
+        config.Selfbot.EmbedURL = value;
         return config;
       },
     },
@@ -351,23 +377,51 @@ export const configFields = {
     },
     {
       name: "Ping Self",
-      type: "switch",
-      info: "If enabled, you will be pinged when a webhook notification is sent.",
-      get: (config) => config.Webhooks?.PingSelf,
+      type: "dropdown",
+      info: "On Always mode, you will be pinged when a webhook notification is sent. On Important mode, you will be pinged for important notifications only.",
+      get: (config) => config.Webhooks?.PingSelfMode,
       set: (config, value) => {
-        config.Webhooks.PingSelf = value;
+        config.Webhooks.PingSelfMode = value;
         return config;
       },
+      options: [
+        {
+          label: "Disabled",
+          value: "Disabled",
+        },
+        {
+          label: "Always",
+          value: "Always",
+        },
+        {
+          label: "Important",
+          value: "Important",
+        },
+      ],
     },
     {
       name: "Ping Everyone",
-      type: "switch",
-      info: "If enabled, @everyone will be pinged when a webhook notification is sent.",
-      get: (config) => config.Webhooks?.PingEveryone,
+      type: "dropdown",
+      info: "On Always mode, @everyone will be pinged when a webhook notification is sent. On Important mode, @everyone will be pinged for important notifications only.",
+      get: (config) => config.Webhooks?.PingEveryoneMode,
       set: (config, value) => {
-        config.Webhooks.PingEveryone = value;
+        config.Webhooks.PingEveryoneMode = value;
         return config;
       },
+      options: [
+        {
+          label: "Disabled",
+          value: "Disabled",
+        },
+        {
+          label: "Always",
+          value: "Always",
+        },
+        {
+          label: "Important",
+          value: "Important",
+        },
+      ],
     },
   ],
   events: [
@@ -504,6 +558,16 @@ export const configFields = {
       info: "Turn Discord activity on or off.",
     },
     {
+      name: "Pause for other Activity'",
+      type: "switch",
+      get: (config) => config.Activity?.PauseForOtherActivity,
+      set: (config, value) => {
+        config.Activity.PauseForOtherActivity = value;
+        return config;
+      },
+      info: "If enabled, Custom Activity will be paused when another activity is detected on your Discord account.",
+    },
+    {
       name: "Activity Type",
       type: "dropdown",
       get: (config) => config.Activity?.ActivityType,
@@ -565,6 +629,54 @@ export const configFields = {
           label: "Competing",
           value: "Competing",
           info: "Competing activity",
+          icon: "code-braces",
+        },
+        {
+          label: "Spotify",
+          value: "Spotify",
+          info: "Spotify activity",
+          icon: "code-braces",
+        },
+      ],
+    },
+    {
+      name: "Platform",
+      type: "dropdown",
+      get: (config) => config.Activity?.Platform,
+      set: (config, value) => {
+        config.Activity.Platform = value;
+        return config;
+      },
+      info: "The platform your activity will be shown as.",
+      options: [
+        {
+          label: "Default",
+          value: "Default",
+          info: "Default platform.",
+          icon: "code-braces",
+        },
+        {
+          label: "PlayStation 4",
+          value: "PS4",
+          info: "PlayStation 4 platform.",
+          icon: "code-braces",
+        },
+        {
+          label: "PlayStation 5",
+          value: "PS5",
+          info: "PlayStation 5 platform.",
+          icon: "code-braces",
+        },
+        {
+          label: "Xbox",
+          value: "Xbox",
+          info: "Xbox platform.",
+          icon: "code-braces",
+        },
+        {
+          label: "Samsung",
+          value: "Samsung",
+          info: "Samsung platform.",
           icon: "code-braces",
         },
       ],
@@ -725,6 +837,11 @@ export const configFields = {
       name: "Theme",
       type: "dropdown",
       info: "The theme of the UI.",
+      get: (config) => config.UI?.Theme,
+      set: (config, value) => {
+        config.UI.Theme = value;
+        return config;
+      },
       options: [
         {
           label: "Dark",
@@ -737,11 +854,6 @@ export const configFields = {
           info: "Light Theme",
         },
       ],
-      get: (config) => config.UI?.Theme,
-      set: (config, value) => {
-        config.UI.Theme = value;
-        return config;
-      },
     },
     {
       name: "Hide To System Tray",
