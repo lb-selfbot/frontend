@@ -558,7 +558,7 @@ export const configFields = {
       info: "Turn Discord activity on or off.",
     },
     {
-      name: "Pause for other Activity'",
+      name: "Pause for other Activity",
       type: "switch",
       get: (config) => config.Activity?.PauseForOtherActivity,
       set: (config, value) => {
