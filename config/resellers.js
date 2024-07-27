@@ -5,6 +5,6 @@ export const resellers = [
   },
   {
     name: "Project K",
-    url: "https://discord.gg/TFvZbM4B",
+    url: "https://projectk.sellpass.io/",
   },
 ];
